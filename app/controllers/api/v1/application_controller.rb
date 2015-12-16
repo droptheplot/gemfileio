@@ -9,6 +9,10 @@ class Api::V1::ApplicationController < ActionController::Base
     render json: { 'error' => 'Not found' }, :status => 404
   end
 
+  def default_serializer_options
+    { root: false }
+  end
+
   def cors_preflight
     head :ok if request.request_method == 'OPTIONS'
   end
