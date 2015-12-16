@@ -1,8 +1,9 @@
 !!!
-%html
+%html{ 'ng-app' => 'gemfileio' }
   %head
     %title Gemfile.io
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body
+    %base{ :href => '/' }
+  %body{ 'ng-controller' => 'applicationController' }

@@ -1,0 +1,19 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('gemfileio', ['satellizer', 'templates', 'ngRoute', 'ngResource', 'angular-loading-bar']);
+
+  angular
+    .module('gemfileio')
+    .config(config);
+
+  config.$inject = ['$routeProvider', '$locationProvider', '$authProvider'];
+
+  function config($routeProvider, $locationProvider, $authProvider) {
+    $locationProvider.html5Mode(true);
+
+    $authProvider.signupUrl = '/api/v1/users/signup';
+    $authProvider.loginUrl = '/api/v1/users/login';
+  };
+})()
