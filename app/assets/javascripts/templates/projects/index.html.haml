@@ -1,2 +1,16 @@
 .project{ 'ng-repeat' => 'project in projects track by project.id' }
   .title{ 'ng-bind' => 'project.name' }
+  .info
+    .row
+      %span
+        %i.fa.fa-star-o
+        {{ project.stars_count }}
+      %span
+        %i.fa.fa-code-fork
+        {{ project.forks_count }}
+      %span
+        %i.fa.fa-user
+        {{ project.contributors_count }}
+      %span
+        %i.fa.fa-eye
+        {{ project.views_count }}

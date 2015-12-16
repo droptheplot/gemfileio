@@ -1,0 +1,171 @@
+$dark_color: #111;
+$medium_color: #888;
+$light_color: #eee;
+$brand_color: #C72C1C;
+$border_radius: 3px;
+$font_family: 'Arial';
+$font_size: 13px;
+
+* {
+  margin: 0;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: $font_family;
+  font-size: $font_size;
+  color: $dark_color;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a {
+  color: $medium_color;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 17px;
+  line-height: 17px;
+}
+
+ul {
+  margin-bottom: 20px;
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.row {
+  overflow: hidden;
+  margin: 0 -10px;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    box-sizing: border-box;
+    margin: 0 10px;
+    width: 60px * $i + 20px * ($i - 1);
+    float: left;
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-offset-#{$i} {
+    margin-left: 60px * $i + 20px * ($i - 1) + 30px;
+  }
+}
+
+header {
+  background: $brand_color;
+  height: 50px;
+  line-height: 50px;
+  .logo a {
+    font-weight: bold;
+    color: #fff;
+  }
+  .search {
+    float: right;
+    font-size: 0;
+    input, button {
+      font-size: $font_size;
+      font-family: $font_family;
+      vertical-align: middle;
+      background: #fff;
+      border: none;
+    }
+    input[type=text] {
+      width: 400px;
+      height: 30px;
+      border-radius: $border_radius 0 0 $border_radius;
+      padding: 0 10px;
+    }
+    button[type=submit] {
+      width: 30px;
+      height: 30px;
+      border-radius: 0 $border_radius $border_radius 0;
+      color: $brand_color;
+      cursor: pointer;
+    }
+  }
+  .logo, .search {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+main {
+  padding: 40px 0;
+}
+
+.btn {
+  display: inline-block;
+  background: $brand_color;
+  border: 1px solid $brand_color;
+  border-radius: $border_radius;
+  font-family: $font_family;
+  font-size: $font_size;
+  font-weight: bold;
+  color: #fff;
+  height: 28px;
+  line-height: 26px;
+  padding: 0 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  &:hover {
+    background: darken($brand_color, 10%);
+    border-color: darken($brand_color, 10%);
+  }
+  &.clear {
+    background: #fff;
+    color: $brand_color;
+  }
+}
+
+.project {
+  .title {
+    font-size: $font_size + 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .info {
+    span {
+      margin: 0 10px;
+      font-size: $font_size - 2px;
+      color: $medium_color;
+    }
+  }
+}
