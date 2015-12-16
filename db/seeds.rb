@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Project.create([
+  { name: 'rails', owner: 'rails', repo: 'rails' },
+  { name: 'rake', owner: 'ruby', repo: 'rake' },
+  { name: 'rack', owner: 'rack', repo: 'rack' },
+  { name: 'sass', owner: 'sass', repo: 'sass' },
+  { name: 'haml', owner: 'haml', repo: 'haml' },
+])
