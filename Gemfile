@@ -14,6 +14,7 @@ gem 'angular-rails-templates'
 gem 'kaminari'
 gem 'faker'
 gem 'whenever', require: false
+gem 'octokit'
 
 group :development, :test do
   gem 'rspec-rails'
