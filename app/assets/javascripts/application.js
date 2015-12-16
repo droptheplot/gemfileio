@@ -8,3 +8,5 @@
 //= require ./gemfileio
 
 //= require_tree ./controllers
+//= require_tree ./factories
+//= require_tree ./templates

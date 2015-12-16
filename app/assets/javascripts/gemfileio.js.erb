@@ -11,6 +11,12 @@
   config.$inject = ['$routeProvider', '$locationProvider', '$authProvider'];
 
   function config($routeProvider, $locationProvider, $authProvider) {
+    $routeProvider
+      .when('/', {
+        controller: 'projectsIndexController',
+        templateUrl: "<%= asset_path('templates/projects/index.html') %>"
+      });
+
     $locationProvider.html5Mode(true);
 
     $authProvider.signupUrl = '/api/v1/users/signup';
