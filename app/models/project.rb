@@ -5,4 +5,8 @@ class Project < ActiveRecord::Base
   def ref
     [self.owner, self.repo].join('/') if self.owner && self.repo
   end
+
+  def url
+    URI.join('https://github.com', self.ref).to_s if self.ref
+  end
 end

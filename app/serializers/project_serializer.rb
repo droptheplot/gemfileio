@@ -9,5 +9,6 @@ class ProjectSerializer < ActiveModel::Serializer
     contributors_count
     views_count
     description
+    url
   ]
 end
