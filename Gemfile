@@ -1,0 +1,32 @@
+source 'https://rubygems.org'
+
+
+gem 'rails', '4.2.5'
+
+gem 'sqlite3'
+gem 'pg'
+gem 'active_model_serializers'
+gem 'bcrypt'
+gem 'jwt'
+gem 'sass'
+gem 'haml-rails'
+gem 'angular-rails-templates'
+gem 'kaminari'
+gem 'faker'
+gem 'whenever', require: false
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
+
+group :development do
+  gem 'spring'
+  gem 'letter_opener'
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
+end

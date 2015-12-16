@@ -1,0 +1,13 @@
+{
+  "name": "gemfileio",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-resource": "~1.4.3",
+    "satellizer": "~0.12.5",
+    "angular-loading-bar": "~0.8.0"
+  }
+}
