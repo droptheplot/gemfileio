@@ -153,19 +153,27 @@ main {
     background: #fff;
     color: $brand_color;
   }
+  &.block {
+    display: block;
+    text-align: center;
+  }
 }
 
 .project {
+  margin-bottom: 40px;
   .title {
     font-size: $font_size + 12px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   .info {
-    span {
+    span, a {
       margin: 0 10px;
       font-size: $font_size - 2px;
       color: $medium_color;
+      .fa {
+        margin-right: 2px;
+      }
     }
   }
 }
