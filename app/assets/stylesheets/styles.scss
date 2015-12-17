@@ -90,46 +90,37 @@ ul {
 }
 
 header {
-  background: $brand_color;
-  height: 50px;
-  line-height: 50px;
+  border-bottom: 1px solid $light_color;
+  padding: 10px 0;
   margin-bottom: 40px;
   .logo a {
+    line-height: 34px;
     font-weight: bold;
-    color: #fff;
+    color: $brand_color;
   }
   .search {
-    float: right;
     font-size: 0;
     input, button {
       font-size: $font_size;
       font-family: $font_family;
       vertical-align: middle;
-      background: #fff;
+      background: $light_color;
       border: none;
     }
     input[type=text] {
-      width: 400px;
-      height: 30px;
+      width: calc(100% - 54px);
+      height: 34px;
       border-radius: $border_radius 0 0 $border_radius;
       padding: 0 10px;
     }
     button[type=submit] {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
       border-radius: 0 $border_radius $border_radius 0;
-      color: $brand_color;
+      color: $medium_color;
       cursor: pointer;
     }
   }
-  .logo, .search {
-    display: inline-block;
-    margin: 0 10px;
-  }
-}
-
-aside {
-
 }
 
 .btn {
@@ -141,8 +132,8 @@ aside {
   font-size: $font_size;
   font-weight: bold;
   color: #fff;
-  height: 28px;
-  line-height: 26px;
+  height: 34px;
+  line-height: 34px;
   padding: 0 10px;
   cursor: pointer;
   box-sizing: border-box;

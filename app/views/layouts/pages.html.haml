@@ -11,14 +11,19 @@
     %header
       .container
         .row
-          .logo
-            %a{ 'ng-href' => '/' }
-              Gemfile.io
-          .search
-            %form
-              %input{ :type => 'text', :placeholder => 'Search' }
-              %button{ :type => 'submit' }
-                %i.fa.fa-search
+          .col-2
+            .logo
+              %a{ 'ng-href' => '/' }
+                Gemfile.io
+          .col-2
+            .btn.block
+              Submit Project
+          .col-8
+            .search
+              %form
+                %input{ :type => 'text', :placeholder => 'Search' }
+                %button{ :type => 'submit' }
+                  %i.fa.fa-search
     .container
       .row
         .col-2
