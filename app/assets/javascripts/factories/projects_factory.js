@@ -8,6 +8,6 @@
   projectsFactory.$inject = ['$resource'];
 
   function projectsFactory($resource) {
-    return $resource('/api/v1/projects/:id', { id: '@id', page: '@page' }, {});
+    return $resource('/api/v1/projects/:id', { id: '@id', page: '@page', query: '@query' }, {});
   }
 })();

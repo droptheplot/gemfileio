@@ -19,9 +19,9 @@
             .btn.block
               Submit Project
           .col-8
-            .search
-              %form
-                %input{ :type => 'text', :placeholder => 'Search' }
+            .search{ 'ng-controller' => 'searchController' }
+              %form{ 'ng-submit' => 'setQuery(query)' }
+                %input{ :type => 'text', :placeholder => 'Search', 'ng-model' => 'query' }
                 %button{ :type => 'submit' }
                   %i.fa.fa-search
     .container

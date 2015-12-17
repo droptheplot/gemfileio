@@ -3,6 +3,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     @projects = Project.all.page(params[:page]).per(30)
 
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
+    @projects = @projects.where('name LIKE ?', "%#{ params[:query] }%") if params[:query]
 
     render json: @projects
   end
