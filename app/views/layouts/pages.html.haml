@@ -25,6 +25,6 @@
           %aside{ 'ng-controller' => 'categoriesController' }
             %ul
               %li{ 'ng-repeat' => 'category in categories track by category.id' }
-                %a{ 'ng-href' => '/categories/{{ ::category.id }}', 'ng-bind' => '::category.title' }
+                %a{ 'ng-href' => '/categories/{{ ::category.id }}', 'ng-bind' => "category.title + ' (' + category.projects_count + ')'" }
         .col-10
           %main{ 'ng-view' => '' }
