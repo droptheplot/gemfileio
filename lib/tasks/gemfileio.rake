@@ -4,9 +4,11 @@ namespace :gemfileio do
 
     Project.all.each do |project|
       repo = client.repo(project.ref)
+      kem = Gems.info(project.name)
 
       project.stars_count = repo[:stargazers_count]
       project.forks_count = repo[:forks]
+      project.downloads_count = kem['downloads']
 
       project.touch
 

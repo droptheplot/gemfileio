@@ -15,6 +15,7 @@ gem 'kaminari'
 gem 'faker'
 gem 'whenever', require: false
 gem 'octokit'
+gem 'gems'
 
 group :development, :test do
   gem 'rspec-rails'
