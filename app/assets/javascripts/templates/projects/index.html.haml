@@ -4,13 +4,13 @@
     .row
       %span
         %i.fa.fa-star-o
-        {{ ::project.stars_count }}
+        {{ ::project.stars_count | number  }}
       %span
         %i.fa.fa-code-fork
-        {{ ::project.forks_count }}
+        {{ ::project.forks_count | number  }}
       %span
         %i.fa.fa-download
-        {{ ::project.downloads_count }}
+        {{ ::project.downloads_count | number }}
       %a{ 'ng-href' => '{{ ::project.url }}', 'ng-if' => '::project.url', :target => '_blank' }
         %i.fa.fa-github
         {{ ::project.ref }}
