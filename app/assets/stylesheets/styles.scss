@@ -33,6 +33,10 @@ img {
 a {
   color: $medium_color;
   text-decoration: none;
+  &.active {
+    color: $brand_color;
+    font-weight: bold;
+  }
 }
 
 h1 {

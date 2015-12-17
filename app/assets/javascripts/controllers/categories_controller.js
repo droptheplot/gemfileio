@@ -11,5 +11,13 @@
     categoriesFactory.query({}, function(data) {
       $scope.categories = data;
     });
+
+    $scope.$on('$routeChangeSuccess', function(event, current, previous) {
+      if(current.params.category_id) {
+        $scope.activeCategoryId = current.params.category_id;
+      } else {
+        delete $scope.activeCategoryId;
+      }
+    });
   }
 })();
