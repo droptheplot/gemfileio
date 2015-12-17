@@ -38,7 +38,10 @@ a {
 h1 {
   font-size: 24px;
   font-weight: bold;
+  padding-bottom: 40px;
   margin-bottom: 40px;
+  color: $brand_color;
+  border-bottom: 1px solid $light_color;
 }
 
 h2 {
