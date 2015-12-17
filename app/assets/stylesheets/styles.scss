@@ -174,3 +174,18 @@ header {
   text-align: center;
   margin-bottom: 40px;
 }
+
+#loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  .bar {
+    background: $brand_color;
+    height: 2px;
+  }
+}
+
+#loading-bar-spinner {
+  display: none;
+}
