@@ -92,10 +92,12 @@ ul {
 header {
   padding-top: 40px;
   margin-bottom: 40px;
-  .logo a {
+  .logo {
     line-height: 34px;
-    font-weight: bold;
-    color: $brand_color;
+    text-align: center;
+    img {
+      height: 24px;
+    }
   }
   .search {
     font-size: 0;

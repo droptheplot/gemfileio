@@ -14,7 +14,7 @@
           .col-2
             .logo
               %a{ 'ng-href' => '/' }
-                Gemfile.io
+                %img{ 'ng-src' => "#{ asset_path('logo.png') }" }
           .col-8
             .search{ 'ng-controller' => 'searchController' }
               %form{ 'ng-submit' => 'setQuery(query)' }
