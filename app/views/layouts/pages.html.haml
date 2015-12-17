@@ -15,15 +15,15 @@
             .logo
               %a{ 'ng-href' => '/' }
                 Gemfile.io
-          .col-2
-            .btn.block
-              Submit Project
           .col-8
             .search{ 'ng-controller' => 'searchController' }
               %form{ 'ng-submit' => 'setQuery(query)' }
-                %input{ :type => 'text', :placeholder => 'Search', 'ng-model' => 'query' }
                 %button{ :type => 'submit' }
                   %i.fa.fa-search
+                %input{ :type => 'text', :placeholder => 'Search', 'ng-model' => 'query' }
+          .col-2
+            .btn.block
+              Submit Project
     .container
       .row
         .col-2

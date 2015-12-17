@@ -90,8 +90,7 @@ ul {
 }
 
 header {
-  border-bottom: 1px solid $light_color;
-  padding: 10px 0;
+  padding-top: 40px;
   margin-bottom: 40px;
   .logo a {
     line-height: 34px;
@@ -108,15 +107,14 @@ header {
       border: none;
     }
     input[type=text] {
-      width: calc(100% - 54px);
+      width: calc(100% - 34px);
+      border-radius: 0 $border_radius $border_radius 0;
       height: 34px;
-      border-radius: $border_radius 0 0 $border_radius;
-      padding: 0 10px;
     }
     button[type=submit] {
       width: 34px;
       height: 34px;
-      border-radius: 0 $border_radius $border_radius 0;
+      border-radius: $border_radius 0 0 $border_radius;
       color: $medium_color;
       cursor: pointer;
     }
