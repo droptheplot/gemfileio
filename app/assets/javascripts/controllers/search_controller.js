@@ -9,7 +9,12 @@
 
   function searchController($scope, $location, $routeParams) {
     $scope.$on('$locationChangeSuccess', function() {
-      $scope.query = $location.search().query;
+      if($location.search().query !== '') {
+        $scope.query = $location.search().query;
+      } else {
+        delete $scope.query;
+        $location.search('query', null);
+      }
     });
 
     $scope.setQuery = function(query) {
