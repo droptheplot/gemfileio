@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :name
 
   scope :active, ->{ where(active: true) }
+  scope :top, ->{ order(stars_count: :desc, forks_count: :desc, downloads_count: :desc) }
 
   def ref
     [self.owner, self.repo].join('/') if self.owner && self.repo
