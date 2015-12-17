@@ -15,6 +15,10 @@
       .when('/', {
         controller: 'projectsIndexController',
         templateUrl: "<%= asset_path('templates/projects/index.html') %>"
+      })
+      .when('/categories/:id', {
+        controller: 'projectsIndexController',
+        templateUrl: "<%= asset_path('templates/projects/index.html') %>"
       });
 
     $locationProvider.html5Mode(true);

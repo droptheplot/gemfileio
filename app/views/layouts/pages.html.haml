@@ -20,4 +20,11 @@
               %button{ :type => 'submit' }
                 %i.fa.fa-search
     .container
-      %main{ 'ng-view' => '' }
+      .row
+        .col-2
+          %aside{ 'ng-controller' => 'categoriesController' }
+            %ul
+              %li{ 'ng-repeat' => 'category in categories track by category.id' }
+                %a{ 'ng-href' => '/categories/{{ ::category.id }}', 'ng-bind' => '::category.title' }
+        .col-10
+          %main{ 'ng-view' => '' }
