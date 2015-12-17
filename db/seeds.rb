@@ -6,10 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+frameworks = Category.create(title: 'Frameworks')
+templates = Category.create(title: 'Templates')
+assets = Category.create(title: 'Assets')
+
 Project.create([
-  { name: 'rails', owner: 'rails', repo: 'rails' },
-  { name: 'rake', owner: 'ruby', repo: 'rake' },
-  { name: 'rack', owner: 'rack', repo: 'rack' },
-  { name: 'sass', owner: 'sass', repo: 'sass' },
-  { name: 'haml', owner: 'haml', repo: 'haml' },
+  { name: 'rails', owner: 'rails', repo: 'rails', category_id: frameworks.id },
+  { name: 'rake', owner: 'ruby', repo: 'rake', category_id: frameworks.id },
+  { name: 'rack', owner: 'rack', repo: 'rack', category_id: frameworks.id },
+  { name: 'haml', owner: 'haml', repo: 'haml', category_id: templates.id },
+  { name: 'sass', owner: 'sass', repo: 'sass', category_id: assets.id },
 ])
