@@ -11,9 +11,9 @@ templates = Category.create(title: 'Templates')
 assets = Category.create(title: 'Assets')
 
 Project.create([
-  { name: 'rails', owner: 'rails', repo: 'rails', category_id: frameworks.id },
-  { name: 'rake', owner: 'ruby', repo: 'rake', category_id: frameworks.id },
-  { name: 'rack', owner: 'rack', repo: 'rack', category_id: frameworks.id },
-  { name: 'haml', owner: 'haml', repo: 'haml', category_id: templates.id },
-  { name: 'sass', owner: 'sass', repo: 'sass', category_id: assets.id },
+  { name: 'rails', owner: 'rails', repo: 'rails', category_id: frameworks.id, active: true },
+  { name: 'rake', owner: 'ruby', repo: 'rake', category_id: frameworks.id, active: true },
+  { name: 'rack', owner: 'rack', repo: 'rack', category_id: frameworks.id, active: true },
+  { name: 'haml', owner: 'haml', repo: 'haml', category_id: templates.id, active: true },
+  { name: 'sass', owner: 'sass', repo: 'sass', category_id: assets.id, active: true },
 ])

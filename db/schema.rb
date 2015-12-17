@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217184327) do
+ActiveRecord::Schema.define(version: 20151217192950) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -21,18 +21,19 @@ ActiveRecord::Schema.define(version: 20151217184327) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",                           null: false
+    t.string   "name",                               null: false
     t.string   "owner"
     t.string   "repo"
     t.text     "description"
-    t.integer  "stars_count",        default: 0, null: false
-    t.integer  "forks_count",        default: 0, null: false
-    t.integer  "contributors_count", default: 0, null: false
-    t.integer  "views_count",        default: 0, null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "stars_count",        default: 0,     null: false
+    t.integer  "forks_count",        default: 0,     null: false
+    t.integer  "contributors_count", default: 0,     null: false
+    t.integer  "views_count",        default: 0,     null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "category_id"
-    t.integer  "downloads_count",    default: 0, null: false
+    t.integer  "downloads_count",    default: 0,     null: false
+    t.boolean  "active",             default: false, null: false
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"

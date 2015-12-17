@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
+  scope :active, ->{ where(active: true) }
+
   def ref
     [self.owner, self.repo].join('/') if self.owner && self.repo
   end
