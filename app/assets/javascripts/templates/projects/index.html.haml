@@ -14,3 +14,6 @@
       %a{ 'ng-href' => '::project.url', 'ng-if' => '::project.url' }
         %i.fa.fa-github
         {{ ::project.ref }}
+.pagination
+  .btn.clear{ 'ng-click' => 'loadProjects()' }
+    More Projects

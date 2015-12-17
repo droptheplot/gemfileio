@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.all.page(params[:page]).per(30)
 
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
 

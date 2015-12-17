@@ -134,7 +134,7 @@ header {
   color: #fff;
   height: 34px;
   line-height: 34px;
-  padding: 0 10px;
+  padding: 0 15px;
   cursor: pointer;
   box-sizing: border-box;
   &:hover {
@@ -168,4 +168,9 @@ header {
       }
     }
   }
+}
+
+.pagination {
+  text-align: center;
+  margin-bottom: 40px;
 }
