@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216192623) do
+ActiveRecord::Schema.define(version: 20151217092037) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "projects_count", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",                           null: false
@@ -24,6 +31,9 @@ ActiveRecord::Schema.define(version: 20151216192623) do
     t.integer  "views_count",        default: 0, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "category_id"
   end
+
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id"
 
 end
