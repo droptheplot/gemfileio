@@ -22,8 +22,8 @@
                   %i.fa.fa-search
                 %input{ :type => 'text', :placeholder => 'Search', 'ng-model' => 'query', 'ng-change' => 'setQuery(query)' }
           .col-2
-            .btn.block
-              Submit Project
+            %a.btn.block{ 'ng-href' => '/projects/new' }
+              Submit a Project
     .container
       .row
         .col-2

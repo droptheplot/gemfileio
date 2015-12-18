@@ -19,6 +19,10 @@
       .when('/categories/:category_id', {
         controller: 'projectsIndexController',
         templateUrl: "<%= asset_path('templates/projects/index.html') %>"
+      })
+      .when('/projects/new', {
+        controller: 'projectsNewController',
+        templateUrl: "<%= asset_path('templates/projects/new.html') %>"
       });
 
     $locationProvider.html5Mode(true);

@@ -177,6 +177,31 @@ header {
   }
 }
 
+.form-group {
+  overflow: hidden;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-control {
+    width: 100%;
+    background: none;
+    border: 1px solid darken($light_color, 10%);
+    border-radius: $border_radius;
+    padding: 7px 10px;
+    font-size: $font_size;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    option:empty {
+      display: none;
+    }
+  }
+}
+
 .pagination {
   text-align: center;
   margin-bottom: 40px;

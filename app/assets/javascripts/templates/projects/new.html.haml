@@ -1,0 +1,15 @@
+%h1
+  Submit a Project
+%form{ 'ng-submit' => 'submitProject(project)' }
+  .form-group
+    %label
+      Name
+    %input.form-control{ 'ng-model' => 'project.name', :placeholder => 'e.g. rails' }
+  .form-group
+    %label
+      Category
+    %select.form-control{ 'ng-model' => 'project.category_id' }
+      %option{ 'ng-repeat' => 'category in categories track by category.id', 'ng-value' => 'category.id', 'ng-bind' => 'category.title' }
+  .form-group
+    %button.btn{ :type => :submit }
+      Submit
