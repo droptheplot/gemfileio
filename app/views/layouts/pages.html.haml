@@ -15,7 +15,7 @@
             .logo
               %a{ 'ng-href' => '/' }
                 %img{ 'ng-src' => "#{ asset_path('logo.png') }" }
-          .col-6
+          .col-8
             .search{ 'ng-controller' => 'searchController' }
               %form{ 'ng-submit' => 'setQuery(query)' }
                 %button{ :type => 'submit' }
@@ -24,14 +24,6 @@
           .col-2
             .btn.block
               Submit Project
-          .col-2{ 'ng-show' => '!isAuthenticated()' }
-            .btn.block.clear{ 'ng-click' => "authenticate('github')" }
-              %i.fa.fa-github
-              Sign In
-          .col-2{ 'ng-show' => 'isAuthenticated()' }
-            .btn.block.clear{ 'ng-click' => 'logout()' }
-              %i.fa.fa-remove
-              Sign Out
     .container
       .row
         .col-2
