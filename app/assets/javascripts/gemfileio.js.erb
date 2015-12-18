@@ -25,5 +25,10 @@
 
     $authProvider.signupUrl = '/api/v1/users/signup';
     $authProvider.loginUrl = '/api/v1/users/login';
+
+    $authProvider.github({
+      clientId: '<%= Rails.application.secrets.github_client_id %>',
+      url: 'http://localhost:3000/api/v1/users/oauth/github'
+    });
   };
 })()

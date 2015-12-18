@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       resources :projects, only: [:index, :show]
       resources :categories, only: [:index, :show]
 
+      namespace :users do
+        post 'oauth/:provider' => :oauth
+      end
+
       match '*path' => 'application#not_found', :via => [:get, :post]
       match '*path' => 'application#cors_preflight', :via => :options
     end
