@@ -5,9 +5,11 @@
     .module('gemfileio')
     .controller('applicationController', applicationController);
 
-  applicationController.$inject = ['$scope', '$rootScope', '$auth', '$location'];
+  applicationController.$inject = ['$scope', '$rootScope', '$auth', '$location', 'notificationsFactory'];
 
-  function applicationController($scope, $rootScope, $auth, $location) {
+  function applicationController($scope, $rootScope, $auth, $location, notificationsFactory) {
+    $scope.notifications = notificationsFactory;
+
     if($auth.isAuthenticated()) {
       $rootScope.currentUser = $auth.getPayload();;
     }

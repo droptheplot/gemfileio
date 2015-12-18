@@ -18,7 +18,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     if @project.save
       render json: @project
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: @project.errors.messages.map{ |k, v| [k.to_s.capitalize, v[0]].join(' ') }, status: :unprocessable_entity
     end
   end
 

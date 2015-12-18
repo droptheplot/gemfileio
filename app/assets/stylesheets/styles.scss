@@ -221,3 +221,19 @@ header {
 #loading-bar-spinner {
   display: none;
 }
+
+.notifications {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  .notification {
+    background: $brand_color;
+    color: #fff;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}

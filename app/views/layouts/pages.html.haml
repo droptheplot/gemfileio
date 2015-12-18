@@ -33,3 +33,5 @@
                 %a{ 'ng-href' => '/categories/{{ ::category.id }}', 'ng-bind' => "category.title + ' (' + category.projects_count + ')'", 'ng-class' => "{ active: category.id == activeCategoryId }" }
         .col-10
           %main{ 'ng-view' => '' }
+    .notifications{ 'ng-show' => 'notifications.list.length > 0' }
+      .notification{ 'ng-repeat' => 'notification in notifications.list track by $index', 'ng-bind' => 'notification' }
