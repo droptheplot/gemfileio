@@ -4,6 +4,7 @@
 //= require satellizer
 //= require angular-rails-templates
 //= require angular-loading-bar
+//= require ng-dialog
 
 //= require ./gemfileio
 

@@ -8,6 +8,7 @@
     "angular-route": "~1.4.3",
     "angular-resource": "~1.4.3",
     "satellizer": "~0.12.5",
-    "angular-loading-bar": "~0.8.0"
+    "angular-loading-bar": "~0.8.0",
+    "ng-dialog": "~0.5.6"
   }
 }

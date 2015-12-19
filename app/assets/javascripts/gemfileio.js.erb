@@ -2,15 +2,15 @@
   'use strict';
 
   angular
-    .module('gemfileio', ['satellizer', 'templates', 'ngRoute', 'ngResource', 'angular-loading-bar']);
+    .module('gemfileio', ['satellizer', 'templates', 'ngRoute', 'ngResource', 'angular-loading-bar', 'ngDialog']);
 
   angular
     .module('gemfileio')
     .config(config);
 
-  config.$inject = ['$routeProvider', '$locationProvider', '$authProvider'];
+  config.$inject = ['$routeProvider', '$locationProvider', '$authProvider', 'ngDialogProvider'];
 
-  function config($routeProvider, $locationProvider, $authProvider) {
+  function config($routeProvider, $locationProvider, $authProvider, ngDialogProvider) {
     $routeProvider
       .when('/', {
         controller: 'projectsIndexController',
@@ -26,6 +26,12 @@
       });
 
     $locationProvider.html5Mode(true);
+
+    ngDialogProvider.setDefaults({
+      closeByDocument: true,
+      closeByEscape: true,
+      disableAnimation: true
+    });
 
     $authProvider.signupUrl = '/api/v1/users/signup';
     $authProvider.loginUrl = '/api/v1/users/login';
