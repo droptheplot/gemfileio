@@ -33,6 +33,7 @@ img {
 a {
   color: $medium_color;
   text-decoration: none;
+  cursor: pointer;
   &.active {
     color: $brand_color;
     font-weight: bold;
@@ -96,8 +97,13 @@ ul {
   }
 }
 
+nav {
+  text-align: right;
+  padding: 40px 0 20px;
+  font-size: $font_size - 2px;
+}
+
 header {
-  padding-top: 40px;
   margin-bottom: 40px;
   .logo {
     line-height: 34px;
@@ -231,11 +237,10 @@ header {
   right: 0;
   .notification {
     background: $brand_color;
+    border-radius: 0 0 $border_radius $border_radius;
+    display: inline-block;
+    padding: 10px 15px;
     color: #fff;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
     font-weight: bold;
-    font-size: 20px;
   }
 }

@@ -8,6 +8,14 @@
     %link{ :href => 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', :rel => 'stylesheet' }/
     %base{ :href => '/' }
   %body{ 'ng-controller' => 'applicationController' }
+    %nav
+      .container
+        %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
+          %i.fa.fa-github
+          Sign in with Github
+        %a{ 'ng-click' => 'logout()', 'ng-show' => 'isAuthenticated()' }
+          %i.fa.fa-remove
+          Sign out
     %header
       .container
         .row
@@ -34,4 +42,5 @@
         .col-10
           %main{ 'ng-view' => '' }
     .notifications{ 'ng-show' => 'notifications.list.length > 0' }
-      .notification{ 'ng-repeat' => 'notification in notifications.list track by $index', 'ng-bind' => 'notification' }
+      .container
+        .notification{ 'ng-repeat' => 'notification in notifications.list track by $index', 'ng-bind' => 'notification' }
