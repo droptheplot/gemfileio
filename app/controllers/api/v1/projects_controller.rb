@@ -1,4 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::ApplicationController
+  before_filter :set_project, only: :show
+
   def index
     @projects = Project.active.top.page(params[:page]).per(30)
 
