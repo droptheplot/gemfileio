@@ -12,5 +12,6 @@ class ProjectSerializer < ActiveModel::Serializer
     description
     ref
     url
+    readme
   ]
 end
