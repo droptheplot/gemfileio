@@ -5,9 +5,9 @@
     .module('gemfileio')
     .controller('projectsIndexController', projectsIndexController);
 
-  projectsIndexController.$inject = ['$scope', 'projectsFactory', 'categoriesFactory', '$routeParams'];
+  projectsIndexController.$inject = ['$scope', 'projectsFactory', 'categoriesFactory', '$routeParams', 'ngDialog'];
 
-  function projectsIndexController($scope, projectsFactory, categoriesFactory, $routeParams) {
+  function projectsIndexController($scope, projectsFactory, categoriesFactory, $routeParams, ngDialog) {
     $scope.projects = [];
     $scope.page = 1;
 
@@ -16,6 +16,14 @@
         $scope.projects = $scope.projects.concat(data);
         $scope.page += 1;
       });
+    };
+
+    $scope.openProject = function(projectId) {
+      ngDialog.open({
+        template: "<%= asset_path('templates/projects/show.html') %>",
+        controller: 'projectsShowController',
+        data: { projectId: projectId }
+      })
     };
 
     if($routeParams.category_id) {

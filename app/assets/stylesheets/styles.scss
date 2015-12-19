@@ -169,6 +169,12 @@ header {
     font-size: $font_size + 12px;
     font-weight: bold;
     margin-bottom: 10px;
+    span {
+      cursor: pointer;
+      &:hover {
+        color: $brand_color;
+      }
+    }
   }
   .description {
     margin-bottom: 10px;
@@ -242,5 +248,25 @@ header {
     padding: 10px 15px;
     color: #fff;
     font-weight: bold;
+  }
+}
+
+.ngdialog {
+  .ngdialog-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .3);
+    cursor: pointer;
+  }
+  .ngdialog-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    padding: 20px;
   }
 }
