@@ -1,22 +1,5 @@
 %h1.title{ 'ng-bind' => 'category.title', 'ng-show' => 'category' }
-.project{ 'ng-repeat' => 'project in projects track by project.id' }
-  .title
-    %span{ 'ng-bind' => '::project.name', 'ng-click' => 'openProject(project.id)' }
-  .description{ 'ng-bind' => '::project.description', 'ng-show' => '::project.description' }
-  .info
-    .row
-      %span
-        %i.fa.fa-star-o
-        {{ ::project.stars_count | number  }}
-      %span
-        %i.fa.fa-code-fork
-        {{ ::project.forks_count | number  }}
-      %span
-        %i.fa.fa-download
-        {{ ::project.downloads_count | number }}
-      %a{ 'ng-href' => '{{ ::project.url }}', 'ng-if' => '::project.url', :target => '_blank' }
-        %i.fa.fa-github
-        {{ ::project.ref }}
+.project{ 'ng-repeat' => 'project in projects track by project.id', 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
 .pagination
   .btn.clear{ 'ng-click' => 'loadProjects()' }
     More Projects

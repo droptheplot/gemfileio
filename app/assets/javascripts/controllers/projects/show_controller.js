@@ -8,8 +8,6 @@
   projectsShowController.$inject = ['$scope', 'projectsFactory'];
 
   function projectsShowController($scope, projectsFactory) {
-    $scope.showdown = new showdown.Converter();
-
     projectsFactory.get({ id: $scope.ngDialogData.projectId }, function(data) {
       $scope.project = data;
     });
