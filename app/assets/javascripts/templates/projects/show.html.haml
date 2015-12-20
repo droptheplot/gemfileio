@@ -1,2 +1,1 @@
-.container
-  .readme{ 'ng-bind' => 'project.readme' }
+.readme.markdown-body{ 'ng-bind-html' => 'showdown.makeHtml(project.readme) | html' }
