@@ -1,4 +1,4 @@
-%h1{ 'ng-bind' => 'category.title', 'ng-show' => 'category' }
+%h1.title{ 'ng-bind' => 'category.title', 'ng-show' => 'category' }
 .project{ 'ng-repeat' => 'project in projects track by project.id' }
   .title
     %span{ 'ng-bind' => '::project.name', 'ng-click' => 'openProject(project.id)' }
