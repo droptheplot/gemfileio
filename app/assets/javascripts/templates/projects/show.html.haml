@@ -1,1 +1,16 @@
 .project{ 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
+%h2.title
+  Comments
+.comment{ 'ng-repeat' => 'comment in comments track by comment.id' }
+  .user{ 'ng-bind' => 'comment.user.name' }
+  .body{ 'ng-bind' => 'comment.body' }
+%form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }
+  .form-group
+    %textarea.form-control{ :type => :text, 'ng-model' => 'body' }
+  .form-group
+    %button.btn{ :type => :submit }
+      Submit
+%span{ 'ng-show' => '!isAuthenticated()' }
+  %a{ 'ng-click' => "authenticate('github')" }
+    %i.fa.fa-github
+    You must be signed in to add a comment.

@@ -50,7 +50,7 @@ h1.title {
 }
 
 h2.title {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: normal;
   margin-bottom: 20px;
 }
@@ -186,6 +186,14 @@ header {
   }
 }
 
+.comment {
+  margin-bottom: 25px;
+  > .user {
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+}
+
 .form-group {
   overflow: hidden;
   &:not(:last-child) {
@@ -258,7 +266,7 @@ header {
   }
   .ngdialog-content {
     position: fixed;
-    width: 980px;
+    width: 480px;
     top: 0;
     right: 0;
     bottom: 0;
