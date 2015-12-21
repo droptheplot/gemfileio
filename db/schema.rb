@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220143900) do
+ActiveRecord::Schema.define(version: 20151221232327) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151220143900) do
     t.integer  "downloads_count",    default: 0,     null: false
     t.boolean  "active",             default: false, null: false
     t.text     "readme"
+    t.integer  "comments_count",     default: 0,     null: false
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"
