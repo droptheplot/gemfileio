@@ -39,7 +39,7 @@
 
     $authProvider.github({
       clientId: '<%= Rails.application.secrets.github_client_id %>',
-      url: 'http://localhost:3000/api/v1/users/oauth/github'
+      url: '<%= Rails.application.secrets.github_auth_url %>'
     });
   };
 })()
