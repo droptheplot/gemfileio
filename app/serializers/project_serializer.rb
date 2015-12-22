@@ -15,5 +15,6 @@ class ProjectSerializer < ActiveModel::Serializer
     url
     readme
     active
+    category_id
   ]
 end

@@ -9,7 +9,7 @@
     %label
       Category
     %select.form-control{ 'ng-model' => 'project.category_id' }
-      %option{ 'ng-repeat' => 'category in categories track by category.id', 'ng-value' => 'category.id', 'ng-bind' => 'category.title' }
+      %option{ 'ng-repeat' => 'category in categories track by category.id', 'ng-value' => 'category.id', 'ng-selected' => 'project.category_id == category.id', 'ng-bind' => 'category.title' }
   .form-group
     %label
       Owner
