@@ -22,7 +22,8 @@
       })
       .when('/projects/:project_id/edit', {
         controller: 'projectsEditController',
-        templateUrl: "<%= asset_path('templates/projects/edit.html') %>"
+        templateUrl: "<%= asset_path('templates/projects/edit.html') %>",
+        security: true
       })
       .when('/projects/new', {
         controller: 'projectsNewController',
@@ -44,6 +45,21 @@
     $authProvider.github({
       clientId: '<%= Rails.application.secrets.github_client_id %>',
       url: '<%= Rails.application.secrets.github_auth_url %>'
+    });
+  };
+
+  angular
+    .module('gemfileio')
+    .run(authSecurity);
+
+  authSecurity.$inject = ['$rootScope', '$location', '$auth']
+
+  function authSecurity($rootScope, $location, $auth) {
+    $rootScope.$on('$routeChangeStart', function(event, next) {
+      if(next.security && (!$auth.isAuthenticated() || !$auth.getPayload().user.admin)) {
+        event.preventDefault();
+        $location.path('/');
+      }
     });
   };
 })()
