@@ -32,3 +32,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
 end
+
+group :test do
+  gem 'codeclimate-test-reporter', require: nil
+end
