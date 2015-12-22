@@ -224,6 +224,7 @@ DEPENDENCIES
   rspec-rails
   sass
   spring
+  sprockets
   sqlite3
   whenever
 

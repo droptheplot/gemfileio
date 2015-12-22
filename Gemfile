@@ -16,6 +16,7 @@ gem 'faker'
 gem 'whenever', require: false
 gem 'octokit'
 gem 'gems'
+gem 'sprockets'
 
 group :development, :test do
   gem 'rspec-rails'
