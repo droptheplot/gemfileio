@@ -23,4 +23,10 @@ namespace :gemfileio do
       project.save
     end
   end
+
+  task counters: :environment do
+    Category.all.each do |category|
+      category.update(projects_count: category.projects.active.count)
+    end
+  end
 end
