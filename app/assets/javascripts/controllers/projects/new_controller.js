@@ -16,10 +16,9 @@
     });
 
     $scope.submitProject = function(project) {
-      if($rootScope.currentUser.admin) {
+      if($rootScope.currentUser && $rootScope.currentUser.admin) {
         project.active = true;
       }
-      console.log(project)
 
       projectsFactory.save(project, function(data) {
         $location.path('/');
