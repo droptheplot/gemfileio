@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
         user: {
           id: self.id,
           name: self.name,
+          admin: self.admin,
         },
         exp: (DateTime.now + 30).to_i
       },
