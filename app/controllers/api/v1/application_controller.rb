@@ -29,6 +29,10 @@ class Api::V1::ApplicationController < ActionController::Base
     head :unauthorized unless current_user
   end
 
+  def authenticate_admin!
+    head :unauthorized unless current_user && current_user.admin?
+  end
+
   def has_permissions user
     head :unauthorized unless user == current_user
   end

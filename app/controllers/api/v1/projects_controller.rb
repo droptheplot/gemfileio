@@ -1,5 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::ApplicationController
-  before_filter :set_project, only: :show
+  before_filter :set_project, only: [:show, :update]
+  before_filter :authenticate_admin!, only: :update
 
   def index
     @projects = Project.active.top.page(params[:page]).per(30)
@@ -24,6 +25,16 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     end
   end
 
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update(project_params)
+      render json: @project
+    else
+      render json: @project.errors.messages.map{ |k, v| [k.to_s.capitalize, v[0]].join(' ') }, status: :unprocessable_entity
+    end
+  end
+
   private
 
     def set_project
@@ -31,6 +42,6 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     end
 
     def project_params
-      params.permit(:name, :category_id)
+      params.permit(:name, :owner, :repo, :active, :category_id)
     end
 end
