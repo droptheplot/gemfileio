@@ -20,6 +20,10 @@
         controller: 'projectsIndexController',
         templateUrl: "<%= asset_path('templates/projects/index.html') %>"
       })
+      .when('/projects/:project_id/edit', {
+        controller: 'projectsEditController',
+        templateUrl: "<%= asset_path('templates/projects/edit.html') %>"
+      })
       .when('/projects/new', {
         controller: 'projectsNewController',
         templateUrl: "<%= asset_path('templates/projects/new.html') %>"
