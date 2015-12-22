@@ -10,7 +10,7 @@ gem 'bcrypt'
 gem 'jwt'
 gem 'sass'
 gem 'haml-rails'
-gem 'angular-rails-templates'
+gem 'angular-rails-templates', '0.1.4'
 gem 'kaminari'
 gem 'faker'
 gem 'whenever', require: false
