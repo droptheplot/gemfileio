@@ -19,5 +19,9 @@
       Repo
     %input.form-control{ 'ng-model' => 'project.repo', :placeholder => 'e.g. rails' }
   .form-group
+    %label
+      %input{ :type => :checkbox, 'ng-model' => 'project.active' }
+      Active
+  .form-group
     %button.btn{ :type => :submit }
       Submit
