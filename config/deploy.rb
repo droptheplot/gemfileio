@@ -1,3 +1,5 @@
+require 'whenever/capistrano'
+
 lock '3.4.0'
 
 set :application, 'gemfileio'
