@@ -27,7 +27,12 @@
       })
       .when('/projects/new', {
         controller: 'projectsNewController',
-        templateUrl: "<%= asset_path('templates/projects/new.html') %>"
+        templateUrl: "<%= asset_path('templates/projects/edit.html') %>",
+        security: true
+      })
+      .when('/projects/suggest', {
+        controller: 'projectsNewController',
+        templateUrl: "<%= asset_path('templates/projects/suggest.html') %>"
       });
 
     $locationProvider.html5Mode(true);
