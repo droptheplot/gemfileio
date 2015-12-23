@@ -11,7 +11,8 @@
     var projects = $resource('/api/v1/projects/:id', {
       id: '@id',
       page: '@page',
-      query: '@query'
+      query: '@query',
+      active: '@active'
     }, {
       'update': { method: 'PUT' },
       'create': { method: 'POST' }

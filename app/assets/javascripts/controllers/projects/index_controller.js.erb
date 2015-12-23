@@ -12,7 +12,12 @@
     $scope.page = 1;
 
     $scope.loadProjects = function() {
-      projectsFactory.query({ page: $scope.page, category_id: $routeParams.category_id, query: $routeParams.query }, function(data) {
+      projectsFactory.query({
+        page: $scope.page,
+        category_id: $routeParams.category_id,
+        query: $routeParams.query,
+        active: true
+      }, function(data) {
         $scope.projects = $scope.projects.concat(data);
         $scope.page += 1;
       });

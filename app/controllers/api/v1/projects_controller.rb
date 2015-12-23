@@ -3,8 +3,9 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
   before_filter :authenticate_admin!, only: :update
 
   def index
-    @projects = Project.active.top.page(params[:page]).per(30)
+    @projects = Project.top.page(params[:page]).per(30)
 
+    @projects = @projects.active if params[:active]
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
     @projects = @projects.where('name LIKE ?', "%#{ params[:query] }%") if params[:query]
 
