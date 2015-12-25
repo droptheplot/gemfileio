@@ -10,12 +10,16 @@
   %body{ 'ng-controller' => 'applicationController' }
     %nav
       .container
-        %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
-          %i.fa.fa-github
-          Sign in with Github
-        %a{ 'ng-click' => 'logout()', 'ng-show' => 'isAuthenticated()' }
-          %i.fa.fa-remove
-          Sign out
+        .row
+          %a{ 'ng-href' => '/projects/new', 'ng-show' => 'isAuthenticated() && currentUser.admin' }
+            %i.fa.fa-plus
+            New project
+          %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
+            %i.fa.fa-github
+            Sign in with Github
+          %a{ 'ng-click' => 'logout()', 'ng-show' => 'isAuthenticated()' }
+            %i.fa.fa-remove
+            Sign out
     %header
       .container
         .row

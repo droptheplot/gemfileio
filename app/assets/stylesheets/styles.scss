@@ -96,6 +96,9 @@ nav {
   text-align: right;
   padding: 40px 0 20px;
   font-size: $font_size - 2px;
+  a {
+    margin: 0 10px;
+  }
 }
 
 header {
