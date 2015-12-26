@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.2.2
+env:
+  - DB=sqlite
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - cp config/secrets.yml.travis config/secrets.yml
+addons:
+  code_climate:
+    repo_token: <%= ENV["CODECLIMATE_REPO_TOKEN"] %>
