@@ -7,7 +7,7 @@
   .body{ 'ng-bind' => 'comment.body' }
 %form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }
   .form-group
-    %textarea.form-control{ :type => :text, 'ng-model' => 'body' }
+    %textarea.form-control{ :type => :text, :required => true, 'ng-model' => 'body' }
   .form-group
     %button.btn{ :type => :submit }
       Submit
