@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Categories', type: :request do
   let!(:user) { FactoryGirl.create(:user) }
-  let(:headers) {{ 'Authorization' => user.token }}
+  let(:headers) {{ 'Authorization': user.token }}
 
   describe "GET 'index'" do
     let!(:categories) { FactoryGirl.create_list(:category, 5) }

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Projects', :type => :request do
+describe 'Projects', type: :request do
   describe "GET 'index'" do
     let!(:projects) { FactoryGirl.create_list(:project, 5) }
 
@@ -40,7 +40,7 @@ describe 'Projects', :type => :request do
     let!(:project) { FactoryGirl.create(:project) }
     let!(:user) { FactoryGirl.create(:user, :admin) }
     let(:params) {{ name: 'rake' }}
-    let(:headers) {{ 'Authorization' => user.token }}
+    let(:headers) {{ 'Authorization': user.token }}
 
     it 'should update project' do
       put api_v1_project_path(project), params, headers
