@@ -6,6 +6,8 @@
 //= require angular-loading-bar
 //= require ng-dialog
 //= require showdown
+//= require moment
+//= require angular-moment
 
 //= require ./gemfileio
 

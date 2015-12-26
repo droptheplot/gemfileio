@@ -193,7 +193,12 @@ header {
   margin-bottom: 25px;
   > .user {
     font-weight: bold;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
+  }
+  > .created_at {
+    margin-bottom: 5px;
+    color: $medium_color;
+    font-size: $font_size - 2px;
   }
 }
 

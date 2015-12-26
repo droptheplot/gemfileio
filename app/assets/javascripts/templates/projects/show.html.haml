@@ -3,6 +3,7 @@
   Comments
 .comment{ 'ng-repeat' => 'comment in comments track by comment.id' }
   .user{ 'ng-bind' => 'comment.user.name' }
+  .created_at{ 'am-time-ago' => 'comment.created_at' }
   .body{ 'ng-bind' => 'comment.body' }
 %form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }
   .form-group
