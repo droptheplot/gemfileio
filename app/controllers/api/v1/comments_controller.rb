@@ -14,7 +14,7 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
     if @comment.save
       render json: @comment
     else
-      render json: @comment.errors.messages.map{ |k, v| [k.to_s.capitalize, v[0]].join(' ') }, status: :unprocessable_entity
+      render json: @comment.errors.full_messages, status: :unprocessable_entity
     end
   end
 
