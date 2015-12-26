@@ -8,4 +8,4 @@ before_script:
   - cp config/secrets.yml.travis config/secrets.yml
 addons:
   code_climate:
-    repo_token: <%= ENV["CODECLIMATE_REPO_TOKEN"] %>
+    repo_token: 53efe1b09b13c5ddaffa26775f50c5d0fe744b33a73f917b3e313ab6ef75f1e4
