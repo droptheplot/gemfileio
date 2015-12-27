@@ -18,10 +18,6 @@
       $scope.project = data;
     });
 
-    commentsFactory.query({ project_id: $scope.ngDialogData.projectId }, function(data) {
-      $scope.comments = data;
-    });
-
     $scope.toggleFavorite = function() {
       projectsFactory.toggleFavorite({ id: $scope.ngDialogData.projectId }, function(data) {
         $scope.project = data;
@@ -35,7 +31,7 @@
       };
 
       commentsFactory.save(comment, function(data) {
-        $scope.comments.push(data);
+        $scope.project.comments.push(data);
 
         delete self.comment;
         delete $scope.body;
