@@ -8,6 +8,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     @projects = @projects.active if params[:active]
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
     @projects = @projects.where('name LIKE ?', "%#{ params[:query] }%") if params[:query]
+    @projects = @projects.joins(:users).where(favorites: { user_id: params[:favorited_by] }) if params[:favorited_by]
 
     render json: @projects
   end

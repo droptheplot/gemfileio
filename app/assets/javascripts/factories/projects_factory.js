@@ -12,7 +12,8 @@
       id: '@id',
       page: '@page',
       query: '@query',
-      active: '@active'
+      active: '@active',
+      favorited_by: '@favorited_by'
     }, {
       'update': { method: 'PUT' },
       'create': { method: 'POST' }

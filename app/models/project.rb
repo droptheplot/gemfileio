@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :category
+  has_many :favorites
+  has_many :users, :through => :favorites
 
   validates_presence_of :name
   validates_uniqueness_of :name
