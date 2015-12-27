@@ -22,6 +22,12 @@
       $scope.comments = data;
     });
 
+    $scope.toggleFavorite = function() {
+      projectsFactory.toggleFavorite({ id: $scope.ngDialogData.projectId }, function(data) {
+        console.log(data)
+      });
+    };
+
     $scope.submitComment = function(body) {
       var comment = {
         project_id: $scope.project.id,

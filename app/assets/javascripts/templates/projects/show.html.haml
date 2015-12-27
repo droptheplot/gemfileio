@@ -1,4 +1,7 @@
 .project{ 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
+.favorites
+  .btn.clear{ 'ng-click' => 'toggleFavorite()', 'ng-show' => 'isAuthenticated()' }
+    %i.fa.fa-heart
 %h2.title
   Comments
 .comment{ 'ng-repeat' => 'comment in comments track by comment.id' }

@@ -15,8 +15,8 @@
     %span
       %i.fa.fa-comment-o
       {{ ::project.comments_count | number }}
-    %a{ 'ng-href' => '/projects/{{ ::project.id }}/edit', 'ng-show' => 'currentUser.admin', :target => '_blank' }
-      %i.fa.fa-pencil
     %a{ 'ng-href' => '{{ ::project.url }}', 'ng-if' => '::project.url', :target => '_blank' }
       %i.fa.fa-github
       {{ ::project.ref }}
+    %a{ 'ng-href' => '/projects/{{ ::project.id }}/edit', 'ng-show' => 'currentUser.admin', :target => '_blank' }
+      %i.fa.fa-pencil

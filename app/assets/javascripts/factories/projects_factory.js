@@ -15,8 +15,16 @@
       active: '@active',
       favorited_by: '@favorited_by'
     }, {
-      'update': { method: 'PUT' },
-      'create': { method: 'POST' }
+      'update': {
+        method: 'PUT'
+      },
+      'create': {
+        method: 'POST'
+      },
+      'toggleFavorite': {
+        method: 'POST',
+        url: '/api/v1/projects/:id/toggle_favorite'
+      }
     });
 
     projects.save = function(resource, success, error) {

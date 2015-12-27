@@ -1,5 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::ApplicationController
-  before_filter :set_project, only: [:show, :update]
+  before_filter :set_project, only: [:show, :update, :toggle_favorite]
+  before_filter :authenticate!, only: :toggle_favorite
   before_filter :authenticate_admin!, only: :update
 
   def index
@@ -35,6 +36,16 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     else
       render json: @project.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  def toggle_favorite
+    if @project.users.where(id: current_user.id).present?
+      @project.users.delete(current_user)
+    else
+      @project.users << current_user
+    end
+
+    render json: @project
   end
 
   private
