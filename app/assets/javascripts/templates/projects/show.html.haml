@@ -1,6 +1,6 @@
 .project{ 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
-.favorites
-  .btn.clear{ 'ng-click' => 'toggleFavorite()', 'ng-show' => 'isAuthenticated()' }
+.favorites{ 'ng-show' => 'isAuthenticated()' }
+  .btn{ 'ng-click' => 'toggleFavorite()', 'ng-class' => '{ clear: !project.favorited_by_current_user }' }
     %i.fa.fa-heart
 %h2.title
   Comments

@@ -16,5 +16,10 @@ class ProjectSerializer < ActiveModel::Serializer
     readme
     active
     category_id
+    favorited_by_current_user
   ]
+
+  def favorited_by_current_user
+    scope ? scope.projects.where(id: object.id).present? : false
+  end
 end

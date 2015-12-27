@@ -24,7 +24,7 @@
 
     $scope.toggleFavorite = function() {
       projectsFactory.toggleFavorite({ id: $scope.ngDialogData.projectId }, function(data) {
-        console.log(data)
+        $scope.project = data;
       });
     };
 

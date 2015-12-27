@@ -3,7 +3,7 @@ class Api::V1::ApplicationController < ActionController::Base
 
   before_filter :set_headers, :set_current_user
 
-  serialization_scope :view_context
+  serialization_scope :current_user
 
   def not_found
     render json: { 'error' => 'Not found' }, :status => 404
