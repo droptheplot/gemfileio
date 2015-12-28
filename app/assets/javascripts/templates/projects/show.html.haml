@@ -6,7 +6,8 @@
 %h2.title
   Comments
 .comment{ 'ng-repeat' => 'comment in project.comments track by comment.id' }
-  .user{ 'ng-bind' => 'comment.user.name' }
+  .user
+    %a{ 'ng-href' => 'https://github.com/{{ comment.user.name }}', 'ng-bind' => 'comment.user.name' }
   .created_at{ 'am-time-ago' => 'comment.created_at' }
   .body{ 'ng-bind' => 'comment.body' }
 %form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }

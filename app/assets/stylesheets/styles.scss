@@ -206,8 +206,11 @@ header {
 .comment {
   margin-bottom: 25px;
   > .user {
-    font-weight: bold;
     margin-bottom: 7px;
+    a {
+      font-weight: bold;
+      color: $dark_color;
+    }
   }
   > .created_at {
     margin-bottom: 5px;
