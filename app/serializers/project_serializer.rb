@@ -20,6 +20,11 @@ class ProjectSerializer < ActiveModel::Serializer
   ]
 
   has_many :comments
+  has_many :users
+
+  def users
+   object.users.limit(5)
+  end
 
   def favorited_by_current_user
     scope ? scope.projects.where(id: object.id).present? : false
