@@ -5,7 +5,7 @@
     %span{ 'ng-show' => 'project.favorited_by_current_user' }
       Remove from favorites
     %span{ 'ng-show' => '!project.favorited_by_current_user' }
-      Add to favotites
+      Add to favorites
 .comment{ 'ng-repeat' => 'comment in project.comments track by comment.id' }
   .user
     %a{ 'ng-href' => 'https://github.com/{{ comment.user.name }}', 'ng-bind' => 'comment.user.name' }
