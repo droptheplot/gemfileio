@@ -191,6 +191,12 @@ header {
 
 .favorites {
   margin-bottom: 40px;
+  > .btn {
+    margin-right: 10px;
+  }
+  > .user {
+    margin-right: 10px;
+  }
 }
 
 .comment {
