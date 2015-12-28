@@ -3,8 +3,6 @@
   %a.toggle{ 'ng-click' => 'toggleFavorite()' }
     %i.fa{ 'ng-class' => "project.favorited_by_current_user ? 'fa-heart' : 'fa-heart-o'" }
   %span.user{ 'ng-repeat' => 'user in project.users track by user.id', 'ng-bind' => '::user.name' }
-%h2.title
-  Comments
 .comment{ 'ng-repeat' => 'comment in project.comments track by comment.id' }
   .user
     %a{ 'ng-href' => 'https://github.com/{{ comment.user.name }}', 'ng-bind' => 'comment.user.name' }
@@ -12,7 +10,7 @@
   .body{ 'ng-bind' => 'comment.body' }
 %form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }
   .form-group
-    %textarea.form-control{ :type => :text, :required => true, 'ng-model' => 'body' }
+    %textarea.form-control{ :type => :text, :required => true, 'ng-model' => 'body', :placeholder => 'Leave a comment' }
   .form-group
     %button.btn{ :type => :submit }
       Submit
