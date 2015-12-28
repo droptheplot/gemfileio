@@ -5,9 +5,9 @@
     .module('gemfileio')
     .controller('projectsShowController', projectsShowController);
 
-  projectsShowController.$inject = ['$scope', 'projectsFactory', 'commentsFactory', 'usersService', 'notificationsFactory'];
+  projectsShowController.$inject = ['$scope', '$rootScope', 'projectsFactory', 'commentsFactory', 'usersService', 'notificationsFactory'];
 
-  function projectsShowController($scope, projectsFactory, commentsFactory, usersService, notificationsFactory) {
+  function projectsShowController($scope, $rootScope, projectsFactory, commentsFactory, usersService, notificationsFactory) {
     $scope.isAuthenticated = usersService.isAuthenticated;
     $scope.authenticate = usersService.authenticate;
 
@@ -19,6 +19,10 @@
     });
 
     $scope.toggleFavorite = function() {
+      if(!$rootScope.currentUser) {
+        return;
+      }
+
       projectsFactory.toggleFavorite({ id: $scope.ngDialogData.projectId }, function(data) {
         $scope.project = data;
 

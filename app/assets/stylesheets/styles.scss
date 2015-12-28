@@ -195,11 +195,12 @@ header {
 
 .favorites {
   margin-bottom: 40px;
-  > .btn {
-    margin-right: 10px;
+  > .toggle {
+    color: $brand_color;
   }
   > .user {
-    margin-right: 10px;
+    display: inline-block;
+    margin: 0 5px;
   }
 }
 

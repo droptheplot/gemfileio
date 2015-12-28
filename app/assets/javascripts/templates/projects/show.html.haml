@@ -1,7 +1,7 @@
 .project{ 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
 .favorites{ 'ng-hide' => '!isAuthenticated() && project.users.length === 0'  }
-  .btn{ 'ng-click' => 'toggleFavorite()', 'ng-class' => '{ clear: !project.favorited_by_current_user }', 'ng-show' => 'isAuthenticated()' }
-    %i.fa.fa-heart
+  %a.toggle{ 'ng-click' => 'toggleFavorite()' }
+    %i.fa{ 'ng-class' => "project.favorited_by_current_user ? 'fa-heart' : 'fa-heart-o'" }
   %span.user{ 'ng-repeat' => 'user in project.users track by user.id', 'ng-bind' => '::user.name' }
 %h2.title
   Comments
