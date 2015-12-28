@@ -93,22 +93,24 @@ ul {
 }
 
 nav {
-  text-align: right;
-  padding: 40px 0 20px;
+  background: $brand_color;
+  padding: 15px 0;
   font-size: $font_size - 2px;
   a {
     margin: 0 10px;
+    color: #fff;
+    opacity: .8;
+    &:hover {
+      opacity: 1;
+    }
+    .fa {
+      margin-right: 3px;
+    }
   }
 }
 
 header {
-  margin-bottom: 40px;
-  .logo {
-    line-height: 34px;
-    img {
-      height: 34px;
-    }
-  }
+  padding: 40px 0;
   .search {
     font-size: 0;
     input, button {

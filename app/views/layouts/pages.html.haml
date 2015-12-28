@@ -11,23 +11,23 @@
     %nav
       .container
         .row
-          %a{ 'ng-href' => '/projects/new', 'ng-show' => 'isAuthenticated() && currentUser.admin' }
-            %i.fa.fa-plus
-            New project
-          %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
-            %i.fa.fa-github
-            Sign in with Github
-          %a{ 'ng-click' => 'logout()', 'ng-show' => 'isAuthenticated()' }
-            %i.fa.fa-remove
-            Sign out
+          %a{ 'ng-href' => '/' }
+            %i.fa.fa-diamond
+            Gemfile.io
+          %span.pull-right
+            %a{ 'ng-href' => '/projects/new', 'ng-show' => 'isAuthenticated() && currentUser.admin' }
+              %i.fa.fa-plus
+              New project
+            %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
+              %i.fa.fa-github
+              Sign in with Github
+            %a{ 'ng-click' => 'logout()', 'ng-show' => 'isAuthenticated()' }
+              %i.fa.fa-remove
+              Sign out
     %header
       .container
         .row
-          .col-2
-            .logo
-              %a{ 'ng-href' => '/' }
-                %img{ 'ng-src' => "#{ asset_path('logo.png') }" }
-          .col-8
+          .col-10
             .search{ 'ng-controller' => 'searchController' }
               %form{ 'ng-submit' => 'setQuery(query)' }
                 %button{ :type => 'submit' }
