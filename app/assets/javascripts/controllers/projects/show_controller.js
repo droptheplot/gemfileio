@@ -19,7 +19,7 @@
     });
 
     $scope.toggleFavorite = function() {
-      if(!$rootScope.currentUser) {
+      if(!$scope.isAuthenticated()) {
         return;
       }
 
