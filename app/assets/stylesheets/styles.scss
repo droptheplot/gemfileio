@@ -110,14 +110,16 @@ nav {
 }
 
 header {
-  padding: 40px 0;
+  background: $light_color;
+  padding: 20px 0;
+  margin-bottom: 40px;
   .search {
     font-size: 0;
     input, button {
       font-size: $font_size;
       font-family: $font_family;
       vertical-align: middle;
-      background: $light_color;
+      background: #fff;
       border: none;
     }
     input[type=text] {
