@@ -49,7 +49,10 @@
         .col-10
           %main{ 'ng-view' => '' }
     .notifications{ 'ng-show' => 'notifications.list.length > 0' }
-      .notification{ 'ng-repeat' => 'notification in notifications.list track by $index', 'ng-bind' => 'notification' }
+      .container{ 'ng-repeat' => 'notification in notifications.list track by $index' }
+        .notification
+          %i.fa.fa-exclamation-triangle
+          %span{ 'ng-bind' => 'notification' }
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -269,16 +269,22 @@ header {
 .notifications {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 10px;
   right: 0;
   z-index: 1;
   .notification {
-    background: $brand_color;
+    background: #fff;
+    border: 1px solid $brand_color;
+    border-radius: $border_radius;
+    display: inline-block;
     text-align: center;
-    clear: both;
+    color: $brand_color;
     padding: 10px 15px;
-    color: #fff;
+    margin-bottom: 10px;
     font-weight: bold;
+    .fa {
+      margin-right: 5px;
+    }
   }
 }
 
