@@ -19,6 +19,7 @@ gem 'gems'
 gem 'sprockets-rails', '2.3.2'
 gem 'apipony'
 gem 'jquery-rails'
+gem 'bundler'
 
 group :development, :test do
   gem 'rspec-rails'
