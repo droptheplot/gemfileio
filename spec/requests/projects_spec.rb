@@ -51,4 +51,19 @@ describe 'Projects', type: :request do
       expect(response).to be_success
     end
   end
+
+  describe "POST 'toggle_favorite'" do
+    let!(:project) { FactoryGirl.create(:project) }
+    let!(:user) { FactoryGirl.create(:user) }
+    let(:headers) {{ 'Authorization': user.token }}
+
+    it 'should update project' do
+      post toggle_favorite_api_v1_project_path(project), {}, headers
+
+      project.reload
+
+      expect(project.users).to include(user)
+      expect(response).to be_success
+    end
+  end
 end
