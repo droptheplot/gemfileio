@@ -213,7 +213,6 @@ DEPENDENCIES
   angular-rails-templates (= 0.1.4)
   apipony
   bcrypt
-  bundler
   capistrano
   capistrano-bundler
   capistrano-passenger
