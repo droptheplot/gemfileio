@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: 'json' } do
-    namespace :v1 do
+  namespace :api do
+    mount Apipony::Engine => '/docs'
+
+    namespace :v1, defaults: { format: 'json' } do
       resources :projects, only: [:index, :show, :create, :update] do
         member do
           post :toggle_favorite
@@ -20,4 +22,6 @@ Rails.application.routes.draw do
   end
 
   get '(*page)' => 'pages#index'
+
+  root 'pages#index'
 end
