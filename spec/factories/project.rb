@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    name { Faker::Lorem.word }
+    sequence(:name) { |n| Faker::Lorem.word + n.to_s }
     owner { Faker::Lorem.word }
     repo { Faker::Lorem.word }
     active true
