@@ -10,6 +10,7 @@
   function projectsIndexController($scope, projectsFactory, categoriesFactory, $routeParams, ngDialog) {
     $scope.projects = [];
     $scope.page = 1;
+    $scope.isNextPage = true;
 
     $scope.loadProjects = function() {
       projectsFactory.query({
@@ -17,9 +18,11 @@
         category_id: $routeParams.category_id,
         query: $routeParams.query,
         active: true
-      }, function(data) {
+      }, function(data, headers) {
         $scope.projects = $scope.projects.concat(data);
         $scope.page += 1;
+
+        $scope.isNextPage = (headers().link === 'true');
       });
     };
 

@@ -1,5 +1,5 @@
 %h1.title{ 'ng-bind' => 'category.title', 'ng-show' => 'category' }
 .project{ 'ng-repeat' => 'project in projects track by project.id', 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
-.pagination
+.pagination{ 'ng-show' => 'isNextPage' }
   .btn.clear{ 'ng-click' => 'loadProjects()' }
     More Projects
