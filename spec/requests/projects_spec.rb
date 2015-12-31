@@ -57,12 +57,23 @@ describe 'Projects', type: :request do
     let!(:user) { FactoryGirl.create(:user) }
     let(:headers) {{ 'Authorization': user.token }}
 
-    it 'should update project' do
+    it 'should add project to users favorites' do
       post toggle_favorite_api_v1_project_path(project), {}, headers
 
       project.reload
 
       expect(project.users).to include(user)
+      expect(response).to be_success
+    end
+
+    it 'should remove project from users favorites' do
+      project.users << user
+      
+      post toggle_favorite_api_v1_project_path(project), {}, headers
+
+      project.reload
+
+      expect(project.users).to_not include(user)
       expect(response).to be_success
     end
   end
