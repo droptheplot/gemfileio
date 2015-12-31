@@ -17,6 +17,7 @@ end
 
 RSpec.configure do |config|
   config.include Requests::JsonHelpers, type: :request
+  config.include Requests::RequestHelpers, type: :request
 
   config.before :suite do
     DatabaseCleaner.strategy = :transaction

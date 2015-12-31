@@ -9,4 +9,12 @@ describe 'Application', type: :request do
       expect(response.status).to eq(404)
     end
   end
+
+  describe 'CORS preflight' do
+    it 'should return 200 status for OPTIONS requests' do
+      options '/api/v1/preflight'
+
+      expect(response.status).to eq(200)
+    end
+  end
 end
