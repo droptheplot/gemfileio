@@ -128,6 +128,9 @@ GEM
     octokit (4.2.0)
       sawyer (~> 0.6.0, >= 0.5.3)
     pg (0.18.4)
+    prerender_rails (1.2.0)
+      activesupport
+      rack
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -230,6 +233,7 @@ DEPENDENCIES
   letter_opener
   octokit
   pg
+  prerender_rails
   rails (= 4.2.5)
   rspec-rails
   sass
