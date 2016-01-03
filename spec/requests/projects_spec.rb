@@ -34,21 +34,35 @@ describe 'Projects', type: :request do
 
       expect(response).to be_success
     end
+
+    it 'should respond with error if project is not created' do
+      expect {
+        post api_v1_projects_path, {}, headers
+      }.not_to change(Project, :count)
+
+      expect(response).to be_unprocessable
+    end
   end
 
   describe "POST 'update'" do
     let!(:project) { FactoryGirl.create(:project) }
     let!(:user) { FactoryGirl.create(:user, :admin) }
-    let(:params) {{ name: 'rake' }}
     let(:headers) {{ 'Authorization': user.token }}
 
     it 'should update project' do
-      put api_v1_project_path(project), params, headers
+      put api_v1_project_path(project), { name: 'rake' }, headers
 
       project.reload
 
       expect(project.name).to eq('rake')
       expect(response).to be_success
+    end
+
+    it 'should respond with error if project is not updated' do
+      put api_v1_project_path(project), { name: '' }, headers
+
+      expect(project).to eq(project.reload)
+      expect(response).to be_unprocessable
     end
   end
 
@@ -68,7 +82,7 @@ describe 'Projects', type: :request do
 
     it 'should remove project from users favorites' do
       project.users << user
-      
+
       post toggle_favorite_api_v1_project_path(project), {}, headers
 
       project.reload
