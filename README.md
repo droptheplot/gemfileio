@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/droptheplot/gemfileio/badges/gpa.svg)](https://codeclimate.com/github/droptheplot/gemfileio)
 [![Test Coverage](https://codeclimate.com/github/droptheplot/gemfileio/badges/coverage.svg)](https://codeclimate.com/github/droptheplot/gemfileio/coverage)
 [![Build Status](https://travis-ci.org/droptheplot/gemfileio.svg?branch=master)](https://travis-ci.org/droptheplot/gemfileio)
+[![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/droptheplot/gemfile-io)
 
 ## Requirements
 
