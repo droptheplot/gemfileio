@@ -36,3 +36,21 @@ Run server
 ```shell
 rails s
 ```
+
+# Roadmap
+
+* Github url parser new projects
+* Logo and favicon
+* Subcategories
+* Human friendly urls for categories
+* Minifiable AngularJS
+* Page with favorite projects for users
+* Elasticsearch
+
+# Contributing
+
+1. Fork it (https://github.com/droptheplot/gemfileio/fork)
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
