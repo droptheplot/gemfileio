@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
       resources :categories, only: [:index, :show]
       resources :comments, only: [:index, :create]
+      resources :statistics, only: :index
 
       namespace :users do
         post 'oauth/:provider' => :oauth
