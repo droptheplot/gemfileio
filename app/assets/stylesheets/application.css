@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require github-markdown-css
+ *= require angular-chart.js/dist/angular-chart.css
  *= require_tree .
  *= require_self
  */

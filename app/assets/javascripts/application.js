@@ -8,6 +8,8 @@
 //= require showdown
 //= require moment
 //= require angular-moment
+//= require Chart.js/Chart.min.js
+//= require angular-chart.js/dist/angular-chart.min.js
 
 //= require ./gemfileio
 
