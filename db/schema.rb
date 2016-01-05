@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227091725) do
+ActiveRecord::Schema.define(version: 20160105142843) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.integer  "projects_count", default: 0, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -60,6 +61,13 @@ ActiveRecord::Schema.define(version: 20151227091725) do
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"
+
+  create_table "statistics", force: :cascade do |t|
+    t.integer  "active_projects_count",   default: 0, null: false
+    t.integer  "inactive_projects_count", default: 0, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                          null: false
