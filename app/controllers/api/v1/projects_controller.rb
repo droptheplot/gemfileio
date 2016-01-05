@@ -6,7 +6,12 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
   def index
     @projects = Project.top.page(params[:page]).per(30)
 
-    @projects = @projects.active if params[:active]
+    if params[:active] && params[:active] === 'true'
+      @projects = @projects.active
+    else
+      @projects = @projects.inactive
+    end
+    
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
     @projects = @projects.where('name LIKE ?', "%#{ params[:query] }%") if params[:query]
     @projects = @projects.joins(:users).where(favorites: { user_id: params[:favorited_by] }) if params[:favorited_by]

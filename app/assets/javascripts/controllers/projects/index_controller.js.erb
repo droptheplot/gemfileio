@@ -17,7 +17,7 @@
         page: $scope.page,
         category_id: $routeParams.category_id,
         query: $routeParams.query,
-        active: true
+        active: $routeParams.active || true
       }, function(data, headers) {
         $scope.projects = $scope.projects.concat(data);
         $scope.page += 1;
