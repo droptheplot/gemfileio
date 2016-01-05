@@ -20,6 +20,7 @@ gem 'sprockets-rails', '2.3.2'
 gem 'apipony'
 gem 'jquery-rails'
 gem 'prerender_rails'
+gem 'rollbar'
 
 group :development, :test do
   gem 'rspec-rails'
