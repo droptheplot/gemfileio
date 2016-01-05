@@ -24,6 +24,9 @@
             %a{ 'ng-href' => '/projects/new', 'ng-show' => 'isAuthenticated() && currentUser.admin' }
               %i.fa.fa-plus
               New project
+            %a{ 'ng-href' => '/?active=false', 'ng-show' => 'isAuthenticated() && currentUser.admin' }
+              %i.fa.fa-exclamation-circle
+              Inactive Projects
             %a{ 'ng-click' => "authenticate('github')", 'ng-show' => '!isAuthenticated()' }
               %i.fa.fa-github
               Sign in with Github
