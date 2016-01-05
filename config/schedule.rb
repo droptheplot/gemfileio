@@ -26,3 +26,7 @@ end
 every 7.days do
   rake 'gemfileio:counters'
 end
+
+every 1.day do
+  rake 'gemfileio:statistics'
+end

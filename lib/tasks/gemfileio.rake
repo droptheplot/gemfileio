@@ -29,4 +29,13 @@ namespace :gemfileio do
       category.update(projects_count: category.projects.active.count)
     end
   end
+
+  task statistics: :environment do
+    statistic = Statistic.where(created_at: (Date.today.beginning_of_day...Date.today.end_of_day)).first_or_initialize
+
+    statistic.active_projects_count = Project.active.count
+    statistic.inactive_projects_count = Project.inactive.count
+
+    statistic.save
+  end
 end
