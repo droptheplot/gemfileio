@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :name
 
   scope :active, ->{ where(active: true) }
+  scope :inactive, ->{ where(active: false) }
   scope :top, ->{ order(stars_count: :desc, forks_count: :desc, downloads_count: :desc) }
 
   after_save :increment_category_counter_cache, if: -> (project) { project.active? && project.active_changed? }
