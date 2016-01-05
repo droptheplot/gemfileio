@@ -19,14 +19,14 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day do
+every 1.day, :at => '1am' do
   rake 'gemfileio:parse'
 end
 
-every 7.days do
+every 1.days, :at => '2am' do
   rake 'gemfileio:counters'
 end
 
-every 1.day do
+every 1.day, :at => '3am' do
   rake 'gemfileio:statistics'
 end
