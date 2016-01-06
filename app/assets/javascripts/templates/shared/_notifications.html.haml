@@ -1,0 +1,4 @@
+.container{ 'ng-repeat' => 'notification in notifications.list track by $index' }
+  .notification
+    %i.fa.fa-exclamation-triangle
+    %span{ 'ng-bind' => 'notification' }
