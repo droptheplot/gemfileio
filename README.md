@@ -37,7 +37,7 @@ Run server
 rails s
 ```
 
-# Roadmap
+## Roadmap
 
 * Github url parser new projects
 * Logo and favicon
@@ -47,7 +47,7 @@ rails s
 * Page with favorite projects for users
 * Elasticsearch
 
-# Contributing
+## Contributing
 
 1. Fork it (https://github.com/droptheplot/gemfileio/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
