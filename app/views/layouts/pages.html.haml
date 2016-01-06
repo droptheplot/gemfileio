@@ -10,7 +10,7 @@
   %body{ 'ng-controller' => 'applicationController' }
     %nav{ 'ng-include' => "'#{ asset_path('templates/shared/_nav.html') }'" }
     %header{ 'ng-include' => "'#{ asset_path('templates/shared/_header.html') }'" }
-    .container{ 'ng-include' => "'#{ asset_path('templates/shared/_statistics.html') }'" }
+    .container{ 'ng-include' => "'#{ asset_path('templates/shared/_statistics.html') }'", 'ng-show' => "locationPathname === '/'" }
     .container
       .row
         .col-2

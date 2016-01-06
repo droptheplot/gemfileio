@@ -9,7 +9,11 @@
 
   function applicationController($scope, $rootScope, $auth, usersService, notificationsFactory) {
     $scope.notifications = notificationsFactory;
-    
+
+    $scope.$on('$routeChangeSuccess', function () {
+      $rootScope.locationPathname = window.location.pathname;
+    });
+
     $scope.isAuthenticated = usersService.isAuthenticated;
     $scope.authenticate = usersService.authenticate;
     $scope.logout = usersService.logout;
