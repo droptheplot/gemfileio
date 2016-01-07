@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Robotron => '/robots.txt'
+  
   namespace :api do
     mount Apipony::Engine => '/docs'
 

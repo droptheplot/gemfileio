@@ -21,6 +21,7 @@ gem 'apipony'
 gem 'jquery-rails'
 gem 'prerender_rails'
 gem 'rollbar'
+gem 'robotron'
 
 group :development, :test do
   gem 'rspec-rails'
