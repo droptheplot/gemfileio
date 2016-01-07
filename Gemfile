@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'prerender_rails'
 gem 'rollbar'
 gem 'robotron'
+gem 'uglifier'
 
 group :development, :test do
   gem 'rspec-rails'

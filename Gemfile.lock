@@ -73,6 +73,7 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
+    execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -209,6 +210,9 @@ GEM
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     whenever (0.9.4)
       chronic (>= 0.6.3)
 
@@ -246,6 +250,7 @@ DEPENDENCIES
   spring
   sprockets-rails (= 2.3.2)
   sqlite3
+  uglifier
   whenever
 
 BUNDLED WITH
