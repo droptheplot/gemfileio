@@ -25,7 +25,7 @@ describe 'Projects', type: :request do
 
   describe "POST 'create'" do
     let!(:category) { FactoryGirl.create(:category) }
-    let(:params) {{ name: 'rails', category_id: category.id }}
+    let(:params) {{ name: 'rails', category_id: category.id, url: 'https://github.com/rails/rails',  }}
 
     it 'should create project' do
       expect {
