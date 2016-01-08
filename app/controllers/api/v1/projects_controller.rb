@@ -11,7 +11,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     else
       @projects = @projects.inactive
     end
-    
+
     @projects = @projects.where(category_id: params[:category_id]) if params[:category_id]
     @projects = @projects.where('name LIKE ?', "%#{ params[:query] }%") if params[:query]
     @projects = @projects.joins(:users).where(favorites: { user_id: params[:favorited_by] }) if params[:favorited_by]
@@ -62,6 +62,6 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
     end
 
     def project_params
-      params.permit(:name, :owner, :repo, :active, :category_id)
+      params.permit(:name, :owner, :repo, :active, :category_id, :url)
     end
 end

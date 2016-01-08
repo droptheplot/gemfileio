@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
   validates_uniqueness_of :name
+  validates_uniqueness_of :owner, scope: :repo
+  validate :github_url_correctness
 
   scope :active, ->{ where(active: true) }
   scope :inactive, ->{ where(active: false) }
@@ -23,6 +25,14 @@ class Project < ActiveRecord::Base
     URI.join('https://github.com', self.ref).to_s if self.ref
   end
 
+  def url=(url)
+    matches = url.scan(/github.com\/(\w+)\/(\w+)/).first
+
+    if matches
+      self.owner, self.repo = matches.first, matches.second
+    end
+  end
+
   private
 
     def increment_category_counter_cache
@@ -31,5 +41,12 @@ class Project < ActiveRecord::Base
 
     def decrement_category_counter_cache
       Category.decrement_counter('projects_count', self.category.id)
+    end
+
+    def github_url_correctness
+      if self.owner.nil? || self.repo.nil?
+        self.errors.clear
+        self.errors.add(:base, 'Url is invalid')
+      end
     end
 end
