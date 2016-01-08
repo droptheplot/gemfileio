@@ -46,23 +46,38 @@ describe 'Projects', type: :request do
 
   describe "POST 'update'" do
     let!(:project) { FactoryGirl.create(:project) }
-    let!(:user) { FactoryGirl.create(:user, :admin) }
-    let(:headers) {{ 'Authorization': user.token }}
 
-    it 'should update project' do
-      put api_v1_project_path(project), { name: 'rake' }, headers
+    describe 'if user is admin' do
+      let!(:user) { FactoryGirl.create(:user, :admin) }
+      let(:headers) {{ 'Authorization': user.token }}
 
-      project.reload
+      it 'should update project' do
+        put api_v1_project_path(project), { name: 'rake' }, headers
 
-      expect(project.name).to eq('rake')
-      expect(response).to be_success
+        project.reload
+
+        expect(project.name).to eq('rake')
+        expect(response).to be_success
+      end
+
+      it 'should respond with error if project is not updated' do
+        put api_v1_project_path(project), { name: '' }, headers
+
+        expect(project).to eq(project.reload)
+        expect(response).to be_unprocessable
+      end
     end
 
-    it 'should respond with error if project is not updated' do
-      put api_v1_project_path(project), { name: '' }, headers
+    describe 'if user is not admin' do
+      let!(:user) { FactoryGirl.create(:user) }
+      let(:headers) {{ 'Authorization': user.token }}
 
-      expect(project).to eq(project.reload)
-      expect(response).to be_unprocessable
+      it 'should respond with error' do
+        put api_v1_project_path(project), { name: 'rake' }, headers
+
+        expect(project).to eq(project.reload)
+        expect(response).to be_unauthorized
+      end
     end
   end
 
