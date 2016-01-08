@@ -10,13 +10,14 @@
   %body{ 'ng-controller' => 'applicationController' }
     %nav{ 'ng-include' => "'#{ asset_path('templates/shared/_nav.html') }'" }
     %header{ 'ng-include' => "'#{ asset_path('templates/shared/_header.html') }'" }
-    .container{ 'ng-include' => "'#{ asset_path('templates/shared/_statistics.html') }'", 'ng-show' => "locationPathname === '/'" }
-    .container
-      .row
-        .col-2
-          %aside{ 'ng-include' => "'#{ asset_path('templates/shared/_aside.html') }'", 'ng-controller' => 'categoriesController' }
-        .col-10
-          %main{ 'ng-view' => '' }
+    %main
+      .container
+        .row
+          .col-2
+            %aside{ 'ng-include' => "'#{ asset_path('templates/shared/_aside.html') }'", 'ng-controller' => 'categoriesController' }
+          .col-10
+            %content{ 'ng-view' => '' }
+    .statistics{ 'ng-include' => "'#{ asset_path('templates/shared/_statistics.html') }'", 'ng-show' => "locationPathname === '/'" }
     .notifications{ 'ng-include' => "'#{ asset_path('templates/shared/_notifications.html') }'", 'ng-show' => 'notifications.list.length > 0' }
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

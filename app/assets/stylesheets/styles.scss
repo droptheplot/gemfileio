@@ -144,6 +144,10 @@ header {
   }
 }
 
+main {
+  margin-bottom: 20px;
+}
+
 .btn {
   display: inline-block;
   background: $brand_color;
@@ -254,7 +258,7 @@ header {
 
 .pagination {
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 0 20px;
   border-top: 1px solid $light_color;
 }
 
@@ -319,5 +323,6 @@ header {
 }
 
 .statistics {
-  margin-bottom: 40px;
+  background: $light_color;
+  padding: 40px 0;
 }
