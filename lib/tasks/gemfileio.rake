@@ -3,26 +3,30 @@ namespace :gemfileio do
     client = Octokit::Client.new(:access_token => Rails.application.secrets.github_token)
 
     Project.active.each do |project|
-      repo = client.repo(project.ref)
-      kem = Gems.info(project.name)
+      begin
+        repo = client.repo(project.ref)
+        kem = Gems.info(project.name)
 
-      next unless repo && kem
+        next if kem === "This rubygem could not be found."
 
-      readme = begin
-        Base64.decode64(Octokit.contents(project.ref, path: 'README.md')[:content])
-      rescue Octokit::NotFound
-        ''
+        readme = begin
+          Base64.decode64(Octokit.contents(project.ref, path: 'README.md')[:content])
+        rescue Octokit::NotFound, Octokit::TooManyRequests
+          ''
+        end
+
+        project.stars_count = repo[:stargazers_count]
+        project.forks_count = repo[:forks]
+        project.description = repo[:description]
+        project.downloads_count = kem['downloads']
+        project.readme = readme
+
+        project.touch
+
+        project.save
+      rescue Octokit::InvalidRepository
+        next
       end
-
-      project.stars_count = repo[:stargazers_count]
-      project.forks_count = repo[:forks]
-      project.description = repo[:description]
-      project.downloads_count = kem['downloads']
-      project.readme = readme
-
-      project.touch
-
-      project.save
     end
   end
 
