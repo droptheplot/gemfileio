@@ -2,7 +2,7 @@ namespace :gemfileio do
   task parse: :environment do
     client = Octokit::Client.new(:access_token => Rails.application.secrets.github_token)
 
-    Project.active.each do |project|
+    Project.active.where('updated_at < ? OR created_at > ?', 1.week.ago, 1.day.ago).each do |project|
       begin
         repo = client.repo(project.ref)
         kem = Gems.info(project.name)
