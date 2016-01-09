@@ -22,10 +22,7 @@ gem 'jquery-rails'
 gem 'prerender_rails'
 gem 'robotron'
 gem 'uglifier'
-
-group :production do
-  gem 'rollbar'
-end
+gem 'rollbar'
 
 group :development, :test do
   gem 'rspec-rails'
