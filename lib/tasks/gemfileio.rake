@@ -6,6 +6,8 @@ namespace :gemfileio do
       repo = client.repo(project.ref)
       kem = Gems.info(project.name)
 
+      next unless repo && kem
+
       readme = begin
         Base64.decode64(Octokit.contents(project.ref, path: 'README.md')[:content])
       rescue Octokit::NotFound
