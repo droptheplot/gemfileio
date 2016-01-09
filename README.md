@@ -39,13 +39,13 @@ rails s
 
 ## Roadmap
 
-* Github url parser new projects
 * Logo and favicon
 * Subcategories
 * Human friendly urls for categories
-* Minifiable AngularJS
 * Page with favorite projects for users
 * Elasticsearch
+* ~~Minifiable AngularJS~~
+* ~~Github url parser new projects~~
 
 ## Contributing
 
