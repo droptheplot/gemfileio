@@ -26,7 +26,7 @@ class Project < ActiveRecord::Base
   end
 
   def url=(url)
-    matches = url.scan(/github.com\/(\w+)\/(\w+)/).first
+    matches = url.scan(/github.com\/([\w\-]+)\/([\w\-]+)/).first
 
     if matches
       self.owner, self.repo = matches.first, matches.second
