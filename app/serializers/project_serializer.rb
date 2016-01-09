@@ -22,6 +22,10 @@ class ProjectSerializer < ActiveModel::Serializer
   has_many :comments
   has_many :users
 
+  def comments
+   object.comments.joins(:user)
+  end  
+
   def users
    object.users.limit(5)
   end
