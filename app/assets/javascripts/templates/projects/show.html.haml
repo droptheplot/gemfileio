@@ -1,5 +1,5 @@
 .project{ 'ng-include' => "'#{ asset_path('templates/projects/_project.html') }'" }
-.statistics{ 'ng-show' => 'statistics.data.length > 0' }
+.statistics{ 'ng-show' => 'statistics.data[0].length > 0' }
   %h3.title
     Commits count by day
   %canvas#line.chart.chart-line{ 'chart-data' => 'statistics.data', 'chart-labels' => 'statistics.labels', 'chart-series' => 'statistics.series', 'chart-options' => 'statistics.options', 'chart-colours' => 'statistics.colours' }
