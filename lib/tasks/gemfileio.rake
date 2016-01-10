@@ -20,7 +20,7 @@ namespace :gemfileio do
         project.stars_count = repo[:stargazers_count]
         project.forks_count = repo[:forks]
         project.description = repo[:description]
-        project.commits_count = commits_count[:all]
+        project.commits_count = commits_count[:all] if commits_count
         project.downloads_count = kem['downloads']
         project.readme = readme
 
