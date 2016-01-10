@@ -14,5 +14,6 @@ class ProjectEachSerializer < ActiveModel::Serializer
     url
     active
     category_id
+    activity
   ]
 end

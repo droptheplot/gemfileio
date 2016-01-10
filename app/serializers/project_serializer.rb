@@ -18,6 +18,7 @@ class ProjectSerializer < ActiveModel::Serializer
     category_id
     favorited_by_current_user
     commits_count
+    activity
   ]
 
   has_many :comments

@@ -33,6 +33,10 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def activity
+    self.commits_count.last(4).sum != 0
+  end
+
   private
 
     def increment_category_counter_cache
