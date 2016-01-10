@@ -10,6 +10,8 @@
 //= require angular-moment/angular-moment.min.js
 //= require Chart.js/Chart.min.js
 //= require angular-chart.js/dist/angular-chart.min.js
+//= require clipboard/dist/clipboard.min.js
+//= require ngclipboard/dist/ngclipboard.min.js
 
 //= require ./gemfileio
 

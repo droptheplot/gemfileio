@@ -169,10 +169,26 @@ main {
   &.clear {
     background: #fff;
     color: $brand_color;
+    &:hover {
+      background: $light_color;
+      border-color: $brand_color;
+    }
   }
   &.block {
     display: block;
     text-align: center;
+  }
+}
+
+.btn-group {
+  font-size: 0;
+
+  .btn:first-child {
+    border-radius: $border_radius 0 0 $border_radius;
+    border-right: none;
+  }
+  .btn:last-child {
+    border-radius: 0 $border_radius $border_radius 0;
   }
 }
 
@@ -337,5 +353,9 @@ main {
 }
 
 .statistics {
+  margin-bottom: 20px;
+}
+
+.clipboard {
   margin-bottom: 20px;
 }

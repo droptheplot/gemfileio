@@ -61,5 +61,9 @@
         delete $scope.body;
       });
     };
+
+    $scope.clipboardSuccess = function() {
+      notificationsFactory.add('Copied to clipboard');
+    };
   }
 })();
