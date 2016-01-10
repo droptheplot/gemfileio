@@ -284,16 +284,13 @@ main {
 .notifications {
   position: fixed;
   left: 0;
-  top: 10px;
-  right: 0;
+  top: 140px;
   z-index: 1;
   .notification {
-    background: #fff;
-    border: 1px solid $brand_color;
-    border-radius: $border_radius;
-    display: inline-block;
+    background: $brand_color;
+    border-radius: 0 $border_radius $border_radius 0;
     text-align: center;
-    color: $brand_color;
+    color: #fff;
     padding: 10px 15px;
     margin-bottom: 10px;
     font-weight: bold;
