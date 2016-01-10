@@ -1,4 +1,5 @@
 .title
+  %i.fa.fa-arrow-down{ 'ng-hide' => 'project.activity', :title => 'No activity in the last month.' }
   %span{ 'ng-bind' => '::project.name', 'ng-click' => 'openProject(project.id)' }
 .description{ 'ng-bind' => '::project.description', 'ng-show' => '::project.description' }
 .info

@@ -182,6 +182,10 @@ main {
     font-size: $font_size + 12px;
     font-weight: bold;
     margin-bottom: 10px;
+    .fa {
+      font-size: $font_size + 4px;
+      color: $brand_color;
+    }
     span {
       cursor: pointer;
       &:hover {
