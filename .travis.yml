@@ -6,6 +6,7 @@ env:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
+  - psql -c 'create database gemfileio_test;' -U postgres
 addons:
   postgresql: '9.4'
   code_climate:
