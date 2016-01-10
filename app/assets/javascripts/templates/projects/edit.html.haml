@@ -12,8 +12,9 @@
   .form-group
     %label
       Category
-    %select.form-control{ 'ng-model' => 'project.category_id' }
-      %option{ 'ng-repeat' => 'category in categories track by category.id', 'ng-value' => 'category.id', 'ng-selected' => 'project.category_id == category.id', 'ng-bind' => 'category.title' }
+    %span.select-wrapper
+      %select.form-control{ 'ng-model' => 'project.category_id' }
+        %option{ 'ng-repeat' => 'category in categories track by category.id', 'ng-value' => 'category.id', 'ng-selected' => 'project.category_id == category.id', 'ng-bind' => 'category.title' }
   .form-group
     %label
       %input{ :type => :checkbox, 'ng-model' => 'project.active' }

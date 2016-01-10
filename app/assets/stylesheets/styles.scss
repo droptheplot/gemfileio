@@ -258,6 +258,19 @@ main {
       display: none;
     }
   }
+  .select-wrapper {
+    position:relative;
+    select {
+      cursor: pointer;
+    }
+    &:after {
+      content: '\f078';
+      font-family: 'FontAwesome';
+      right: 10px;
+      position: absolute;
+      top: 0;
+    }
+  }
 }
 
 .pagination {
