@@ -13,12 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20160105142843) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.integer  "projects_count", default: 0, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.string   "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -29,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160105142843) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["project_id"], name: "index_comments_on_project_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,8 +41,8 @@ ActiveRecord::Schema.define(version: 20160105142843) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "favorites", ["project_id"], name: "index_favorites_on_project_id"
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+  add_index "favorites", ["project_id"], name: "index_favorites_on_project_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",                               null: false
@@ -60,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160105142843) do
     t.integer  "comments_count",     default: 0,     null: false
   end
 
-  add_index "projects", ["category_id"], name: "index_projects_on_category_id"
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
 
   create_table "statistics", force: :cascade do |t|
     t.integer  "active_projects_count",   default: 0, null: false
@@ -80,8 +82,13 @@ ActiveRecord::Schema.define(version: 20160105142843) do
     t.boolean  "admin",         default: false, null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["provider"], name: "index_users_on_provider"
-  add_index "users", ["uid"], name: "index_users_on_uid"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "projects"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "projects", "categories"
 end

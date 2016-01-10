@@ -8,6 +8,7 @@
 ## Requirements
 
 * Ruby 2.2.2 or higher
+* PostgreSQL 9.4 or higher
 * Bower
 
 ## Getting Started
