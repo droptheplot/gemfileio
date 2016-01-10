@@ -50,7 +50,7 @@ class Project < ActiveRecord::Base
     def github_url_correctness
       if self.owner.nil? || self.repo.nil?
         self.errors.clear
-        self.errors.add(:base, 'Url is invalid')
+        self.errors.add(:base, 'URL is invalid')
       end
     end
 end
