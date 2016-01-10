@@ -13,7 +13,6 @@ class ProjectSerializer < ActiveModel::Serializer
     description
     ref
     url
-    readme
     active
     category_id
     favorited_by_current_user

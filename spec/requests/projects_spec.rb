@@ -23,6 +23,17 @@ describe 'Projects', type: :request do
     end
   end
 
+  describe "GET 'readme'" do
+    let!(:project) { FactoryGirl.create(:project) }
+
+    it 'should return project readme' do
+      get readme_api_v1_project_path(project)
+
+      expect(response).to be_success
+      expect(json).to_not be_nil
+    end
+  end
+
   describe "POST 'create'" do
     let!(:category) { FactoryGirl.create(:category) }
     let(:params) {{ name: 'rails', category_id: category.id, url: 'https://github.com/rails/rails',  }}

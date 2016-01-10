@@ -1,5 +1,5 @@
 class Api::V1::ProjectsController < Api::V1::ApplicationController
-  before_filter :set_project, only: [:show, :update, :toggle_favorite]
+  before_filter :set_project, only: [:show, :readme, :update, :toggle_favorite]
   before_filter :authenticate!, only: :toggle_favorite
   before_filter :authenticate_admin!, only: :update
 
@@ -23,6 +23,10 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
 
   def show
     render json: @project
+  end
+
+  def readme
+    render json: @project, serializer: ProjectReadmeSerializer
   end
 
   def create

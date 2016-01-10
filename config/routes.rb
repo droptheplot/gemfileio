@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Robotron => '/robots.txt'
-  
+
   namespace :api do
     mount Apipony::Engine => '/docs'
 
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :projects, only: [:index, :show, :create, :update] do
         member do
           post :toggle_favorite
+          get :readme
         end
       end
 
