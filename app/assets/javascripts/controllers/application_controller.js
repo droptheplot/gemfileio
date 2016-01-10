@@ -21,5 +21,23 @@
     if($auth.isAuthenticated()) {
       $rootScope.currentUser = $auth.getPayload().user;
     }
+
+    $rootScope.chartjs_defaults = {
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        showTooltips: false,
+        pointDot: false,
+        scaleFontSize: 8,
+        scaleFontColor: '#888'
+      },
+      colours: [{
+        fillColor: 'rgba(199, 44, 28, 0.2)',
+        strokeColor: 'rgba(199, 44, 28, 0.3)'
+      }, {
+        fillColor: 'rgba(199, 44, 28, 0.2)',
+        strokeColor: 'rgba(199, 44, 28, 0.3)'
+      }]
+    }
   }
 })();

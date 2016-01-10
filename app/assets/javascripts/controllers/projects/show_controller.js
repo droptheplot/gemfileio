@@ -13,9 +13,22 @@
 
     $scope.project = {};
     $scope.comments = [];
+    $scope.statistics = {
+      options: $rootScope.chartjs_defaults.options,
+      colours: $rootScope.chartjs_defaults.colours,
+      series: ['Commits'],
+      labels: [],
+      data: []
+    };
 
     projectsFactory.get({ id: $scope.ngDialogData.projectId }, function(data) {
       $scope.project = data;
+
+      $scope.statistics.data[0] = $scope.project.commits_count;
+
+      for(var i = 0; i < $scope.project.commits_count.length; i++) {
+        $scope.statistics.labels.push('');
+      }
     });
 
     $scope.toggleFavorite = function() {

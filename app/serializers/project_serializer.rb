@@ -17,6 +17,7 @@ class ProjectSerializer < ActiveModel::Serializer
     active
     category_id
     favorited_by_current_user
+    commits_count
   ]
 
   has_many :comments
@@ -24,7 +25,7 @@ class ProjectSerializer < ActiveModel::Serializer
 
   def comments
    object.comments.joins(:user)
-  end  
+  end
 
   def users
    object.users.limit(5)

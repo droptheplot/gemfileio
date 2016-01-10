@@ -2,9 +2,11 @@ namespace :gemfileio do
   task parse: :environment do
     client = Octokit::Client.new(:access_token => Rails.application.secrets.github_token)
 
-    Project.active.where('updated_at < ? OR created_at > ?', 1.week.ago, 1.day.ago).each do |project|
+    # Project.active.where('updated_at < ? OR created_at > ?', 1.week.ago, 1.day.ago).each do |project|
+    Project.active.each do |project|
       begin
         repo = client.repo(project.ref)
+        commits_count = client.participation_stats(project.ref)
         kem = Gems.info(project.name)
 
         next if kem === "This rubygem could not be found."
@@ -18,6 +20,7 @@ namespace :gemfileio do
         project.stars_count = repo[:stargazers_count]
         project.forks_count = repo[:forks]
         project.description = repo[:description]
+        project.commits_count = commits_count[:all]
         project.downloads_count = kem['downloads']
         project.readme = readme
 
