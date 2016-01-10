@@ -33,7 +33,7 @@ class Project < ActiveRecord::Base
   end
 
   def activity
-    self.commits_count.last(4).sum != 0
+    self.commits_count.last(12).sum != 0
   end
 
   private
