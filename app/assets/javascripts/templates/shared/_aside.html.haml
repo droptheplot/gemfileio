@@ -1,3 +1,8 @@
 %ul
   %li{ 'ng-repeat' => 'category in categories track by category.id' }
-    %a{ 'ng-href' => '/categories/{{ ::category.id }}', 'ng-bind' => "category.title + ' (' + category.projects_count + ')'", 'ng-class' => "{ active: category.id == activeCategoryId }" }
+    %a{ 'ng-class' => "{ active: category.id == activeCategoryId }", 'ng-click' => 'showCategory(category)' }
+      {{ ::category.title }}
+      %i.fa{ 'ng-show' => 'category.subcategories.length > 0', 'ng-class' => "category.id === showCategoryId ? 'fa-angle-up' : 'fa-angle-down'" }
+    %ul{ 'ng-if' => 'category.subcategories.length > 0 && category.id === showCategoryId' }
+      %li{ 'ng-repeat' => 'subcategory in category.subcategories track by subcategory.id' }
+        %a{ 'ng-href' => '/categories/{{ ::subcategory.id }}', 'ng-bind' => '::subcategory.title', 'ng-class' => "{ active: subcategory.id == activeCategoryId }" }

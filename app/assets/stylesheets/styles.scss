@@ -63,9 +63,13 @@ h3.title {
 }
 
 ul {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  list-style-type: none;
   li {
     margin-bottom: 10px;
+    > ul {
+      padding: 10px 0 0 10px;
+    }
   }
 }
 
