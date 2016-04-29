@@ -1,0 +1,17 @@
+= render 'project', project: @project
+- @project.comments.each do |comment|
+  .comment
+    .user
+      = link_to comment.user.name, "https://github.com/#{ comment.user.name }"
+    .created_at
+      = "#{time_ago_in_words(comment.created_at)} ago "
+    .body
+      = comment.body
+- if current_user
+  %form{ 'ng-submit' => 'submitComment(body)', 'ng-show' => 'isAuthenticated()' }
+  = form_for @comment do |f|
+    = f.hidden_field :project_id, value: @project.id
+    .form-group
+      = f.text_area :body, class: 'form-control', required: true, placeholder: 'Leave a comment'
+    .form-group
+      = f.submit 'Submit', class: 'btn'

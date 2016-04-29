@@ -1,0 +1,20 @@
+.container
+  .row
+    = link_to root_path do
+      %i.fa.fa-diamond
+      Gemfile.io
+    %span.pull-right
+      = link_to '/api/docs', target: '_blank' do
+        %i.fa.fa-cog
+        API
+      = link_to 'https://github.com/droptheplot/gemfileio', target: '_blank' do
+        %i.fa.fa-code-fork
+        Contribute
+      - if current_user
+        = link_to users_sign_out_path do
+          %i.fa.fa-remove
+          Sign out
+      - else
+        = link_to github_oauth_path do
+          %i.fa.fa-github
+          Sign in with Github

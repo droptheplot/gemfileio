@@ -1,0 +1,5 @@
+%ul
+  - categories.each do |category|
+    %li
+      = link_to category.title, category_path(category),
+        class: ('active' if current_page?(category_path(category)))

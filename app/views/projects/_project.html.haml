@@ -1,0 +1,22 @@
+.project
+  .title
+    = link_to project.name, project_path(project)
+  .description
+    = project.description
+  .info
+    .row
+      %span
+        %i.fa.fa-star-o
+        = number_with_delimiter(project.stars_count)
+      %span
+        %i.fa.fa-code-fork
+        = number_with_delimiter(project.forks_count)
+      %span
+        %i.fa.fa-download
+        = number_with_delimiter(project.downloads_count)
+      %span
+        %i.fa.fa-comment-o
+        = number_with_delimiter(project.comments_count)
+      = link_to project.url, target: '_blank' do
+        %i.fa.fa-github
+        = project.ref

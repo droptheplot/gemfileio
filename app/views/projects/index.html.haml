@@ -1,0 +1,7 @@
+- if @category
+  %h1.title
+    = @category.title
+= render partial: 'project', collection: @projects, as: :project
+.pagination
+  .btn.clear
+    More Projects

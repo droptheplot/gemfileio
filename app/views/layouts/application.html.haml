@@ -1,5 +1,5 @@
 !!!
-%html{ 'ng-app' => 'gemfileio' }
+%html
   %head
     %title Gemfile.io
     = stylesheet_link_tag 'application', media: 'all'
@@ -8,17 +8,23 @@
     %link{ :href => 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', :rel => 'stylesheet' }/
     %link{ :href => 'http:///gemfile.io/opensearch.xml', :rel => 'search', :title => 'Gemfileio', :type => 'application/opensearchdescription+xml' }/
     %base{ :href => '/' }
-  %body{ 'ng-controller' => 'applicationController' }
-    %nav{ 'ng-include' => "'#{ asset_path('templates/shared/_nav.html') }'" }
-    %header{ 'ng-include' => "'#{ asset_path('templates/shared/_header.html') }'" }
+  %body
+    %nav
+      = render 'shared/nav'
+    %header
+      = render 'shared/header'
     %main
       .container
         .row
           .col-2
-            %aside{ 'ng-include' => "'#{ asset_path('templates/shared/_aside.html') }'", 'ng-controller' => 'categoriesController' }
+            %aside
+              = render 'shared/aside'
           .col-10
-            %content{ 'ng-view' => '' }
-    .notifications{ 'ng-include' => "'#{ asset_path('templates/shared/_notifications.html') }'", 'ng-show' => 'notifications.list.length > 0' }
+            %content
+              = yield
+    - if notifications.length > 0
+      .notifications
+        = render 'shared/notifications'
     - if Rails.env.production?
       :javascript
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -25,7 +25,20 @@ Rails.application.routes.draw do
     end
   end
 
-  get '(*page)' => 'pages#index'
+  resources :projects, only: [:index, :show, :create] do
+    collection do
+      get :submit
+    end
+  end
 
-  root 'pages#index'
+  get 'categories/:category_id' => 'projects#index', as: :category
+
+  resources :comments, only: :create
+
+  namespace :users do
+    get 'oauth/:provider' => :oauth, as: :oauth
+    get 'sign_out'
+  end
+
+  root 'projects#index'
 end

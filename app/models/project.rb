@@ -12,6 +12,14 @@ class Project < ActiveRecord::Base
   scope :inactive, ->{ where(active: false) }
   scope :top, ->{ order(stars_count: :desc, forks_count: :desc, downloads_count: :desc) }
 
+  scope :by_query, -> (query) {
+    where('name LIKE ?', "%#{query}%") if query.present?
+  }
+
+  scope :by_category, -> (category_id) {
+    where(category_id: category_id) if category_id.present?
+  }
+
   after_save :increment_category_counter_cache, if: -> (project) { project.active? && project.active_changed? }
   after_update :decrement_category_counter_cache, unless: :active?, if: :active_changed?
   after_destroy :decrement_category_counter_cache, if: :active?
