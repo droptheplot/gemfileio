@@ -1,5 +1,7 @@
 = render 'project', project: @project
+%h3.title Activity
 = @chart.render
+%h3.title Comments
 - @project.comments.each do |comment|
   .comment
     .user
