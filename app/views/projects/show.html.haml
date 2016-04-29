@@ -1,4 +1,5 @@
 = render 'project', project: @project
+= @chart.render
 - @project.comments.each do |comment|
   .comment
     .user

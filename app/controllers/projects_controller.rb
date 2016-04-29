@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @chart = Chart.new(@project.commits_count)
   end
 
   def submit
