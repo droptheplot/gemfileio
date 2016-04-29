@@ -20,6 +20,7 @@ gem 'prerender_rails'
 gem 'robotron'
 gem 'uglifier'
 gem 'rollbar'
+gem 'adminable', '0.0.3'
 
 group :development, :test do
   gem 'rspec-rails'

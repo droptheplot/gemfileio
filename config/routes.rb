@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Adminable::Engine, at: '/admin'
+
   mount Robotron => '/robots.txt'
 
   namespace :api do
