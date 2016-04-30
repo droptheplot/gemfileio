@@ -23,10 +23,6 @@ every 1.day, :at => '1am' do
   rake 'gemfileio:parse'
 end
 
-every 1.days, :at => '2am' do
+every 1.day, :at => '2am' do
   rake 'gemfileio:counters'
-end
-
-every 1.day, :at => '3am' do
-  rake 'gemfileio:statistics'
 end
