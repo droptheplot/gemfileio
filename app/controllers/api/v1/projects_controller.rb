@@ -9,7 +9,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
                        .page(params[:page])
                        .per(30)
 
-    headers['Link'] = (!@projects.last_page?).to_s
+    headers['Last-Page'] = (!@projects.last_page?).to_s
 
     render json: @projects, each_serializer: ProjectSerializer
   end

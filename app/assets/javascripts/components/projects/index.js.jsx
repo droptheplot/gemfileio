@@ -6,7 +6,8 @@ var ProjectsIndex = React.createClass({
       projects: [],
       baseApiUrl: apiUrl,
       currentApiUrl: apiUrl,
-      page: 1
+      page: 1,
+      lastPage: false
     };
   },
 
@@ -17,11 +18,12 @@ var ProjectsIndex = React.createClass({
 
     var newCurrentApiUrl = this.state.baseApiUrl + '?' + params;
 
-    this.projectsRequest = $.get(newCurrentApiUrl, function(data) {
+    this.projectsRequest = $.get(newCurrentApiUrl, function(data, status, request) {
       this.setState({
         projects: this.state.projects.concat(data),
         currentApiUrl: newCurrentApiUrl,
-        page: this.state.page + 1
+        page: this.state.page + 1,
+        lastPage: (request.getResponseHeader('Last-Page') === 'true')
       });
     }.bind(this));
   },
@@ -40,9 +42,11 @@ var ProjectsIndex = React.createClass({
         {this.state.projects.map(function(project) {
           return <ProjectsItem {...project} key={project.id} />;
         })}
-        <div className='pagination'>
-          <div className='btn clear' onClick={this.loadProjects}>More Projects</div>
-        </div>
+        {this.state.lastPage ?
+          <div className='pagination'>
+            <div className='btn clear' onClick={this.loadProjects}>More Projects</div>
+          </div>
+        : null}
       </div>
     )
   }
