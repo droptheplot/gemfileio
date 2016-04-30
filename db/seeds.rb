@@ -17,11 +17,3 @@ Project.create([
   { name: 'haml', owner: 'haml', repo: 'haml', category_id: templates.id, active: true },
   { name: 'sass', owner: 'sass', repo: 'sass', category_id: assets.id, active: true },
 ])
-
-30.times do |index|
-  Statistic.create(
-    :active_projects_count => (rand * 100).to_i,
-    :inactive_projects_count => (rand * 100).to_i,
-    :created_at => (Date.today + index.days)
-  )
-end
