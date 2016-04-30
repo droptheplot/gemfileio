@@ -28,7 +28,7 @@ class UsersController < ApplicationController
         }
       )
 
-      client = Octokit::Client.new(:access_token => token[:access_token])
+      client = Octokit::Client.new(access_token: token[:access_token])
 
       OpenStruct.new(
         uid: client.user.id,
