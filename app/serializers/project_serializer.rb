@@ -11,7 +11,7 @@ class ProjectSerializer < ActiveModel::Serializer
     downloads_count
     comments_count
     description
-    ref
+    github_name
     url
     active
     category_id

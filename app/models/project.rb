@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
-  
+
   scope :top, -> {
     order(stars_count: :desc, forks_count: :desc, downloads_count: :desc)
   }
@@ -27,12 +27,12 @@ class Project < ActiveRecord::Base
   after_update :decrement_category_counter_cache, unless: :active?, if: :active_changed?
   after_destroy :decrement_category_counter_cache, if: :active?
 
-  def ref
+  def github_name
     [self.owner, self.repo].join('/') if self.owner && self.repo
   end
 
   def url
-    URI.join('https://github.com', self.ref).to_s if self.ref
+    URI.join('https://github.com', self.github_name).to_s if self.github_name
   end
 
   def url=(url)
