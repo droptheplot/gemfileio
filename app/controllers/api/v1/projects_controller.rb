@@ -11,7 +11,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
 
     headers['Link'] = (!@projects.last_page?).to_s
 
-    render json: @projects, each_serializer: ProjectEachSerializer
+    render json: @projects, each_serializer: ProjectSerializer
   end
 
   def show

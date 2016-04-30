@@ -5,16 +5,21 @@ class ProjectSerializer < ActiveModel::Serializer
       name
       owner
       repo
+      description
       stars_count
       forks_count
       contributors_count
       views_count
       downloads_count
       comments_count
-      description
-      github_name
-      url
       commits_count
+      github_name
+      github_url
+      url
     ]
   )
+
+  def url
+    project_path(self.id)
+  end
 end
