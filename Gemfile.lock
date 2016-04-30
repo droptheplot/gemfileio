@@ -58,6 +58,10 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bootstrap (4.0.0.alpha3)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
@@ -100,7 +104,9 @@ GEM
     chronic (0.10.2)
     codeclimate-test-reporter (0.5.0)
       simplecov (>= 0.7.1, < 1.0.0)
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    connection_pool (2.2.0)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -204,6 +210,13 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    react-rails (1.7.0)
+      babel-transpiler (>= 0.7.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      rails (>= 3.2)
+      tilt
     robotron (0.1.0)
     rollbar (2.10.0)
       multi_json
@@ -292,6 +305,7 @@ DEPENDENCIES
   pg
   prerender_rails
   rails (= 4.2.5)
+  react-rails
   robotron
   rollbar
   rspec-rails
