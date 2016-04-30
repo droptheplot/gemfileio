@@ -15,23 +15,13 @@ class ProjectSerializer < ActiveModel::Serializer
     url
     active
     category_id
-    favorited_by_current_user
     commits_count
     activity
   ]
 
   has_many :comments
-  has_many :users
 
   def comments
    object.comments.joins(:user)
-  end
-
-  def users
-   object.users.limit(5)
-  end
-
-  def favorited_by_current_user
-    scope ? scope.projects.where(id: object.id).present? : false
   end
 end
