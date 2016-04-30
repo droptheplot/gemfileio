@@ -1,7 +1,7 @@
 - if @category
   %h1.title
     = @category.title
-= render partial: 'project', collection: @projects, as: :project
+= react_component 'ProjectsIndex'
 .pagination
   .btn.clear
     More Projects

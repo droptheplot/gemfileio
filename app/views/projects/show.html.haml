@@ -1,4 +1,4 @@
-= render 'project', project: @project
+= react_component 'ProjectsItem', ProjectSerializer.new(@project).attributes
 %h3.title Activity
 = @chart.render
 %h3.title Comments
