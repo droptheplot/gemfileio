@@ -31,12 +31,12 @@ class Project < ActiveRecord::Base
     [self.owner, self.repo].join('/') if self.owner && self.repo
   end
 
-  def url
+  def github_url
     URI.join('https://github.com', self.github_name).to_s if self.github_name
   end
 
-  def url=(url)
-    matches = url.scan(/github.com\/([\w\-]+)\/([\w\-]+)/).first
+  def github_url=(github_url)
+    matches = github_url.scan(/github.com\/([\w\-]+)\/([\w\-]+)/).first
 
     if matches
       self.owner, self.repo = matches.first, matches.second
