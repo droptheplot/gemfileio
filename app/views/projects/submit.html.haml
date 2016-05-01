@@ -4,16 +4,24 @@
   .form-group
     %label
       Name
-    = f.text_field :name, class: 'form-control', placeholder: 'e.g. rails', required: true
+    = f.text_field :name,
+      class: 'form-control',
+      placeholder: 'e.g. rails',
+      required: true
   .form-group
     %label
       Github URL
-    = f.text_field :url, class: 'form-control', placeholder: 'e.g. https:/github.com/rails/rails', required: true
+    = f.text_field :github_url,
+      class: 'form-control',
+      placeholder: 'e.g. https:/github.com/rails/rails',
+      required: true
   .form-group
     %label
       Category
     %span.select-wrapper
-      = f.select :category_id, options_from_collection_for_select(categories, :id, :title), {},
+      = f.select :category_id,
+        options_from_collection_for_select(categories, :id, :title),
+        {},
         { class: 'form-control' }
   .form-group
     = f.submit 'Submit', class: 'btn'

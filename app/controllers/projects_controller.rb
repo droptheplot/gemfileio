@@ -45,6 +45,8 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :owner, :repo, :active, :category_id, :url)
+      params.require(:project).permit(
+        :name, :owner, :repo, :active, :category_id, :github_url
+      )
     end
 end
