@@ -1,11 +1,6 @@
 .container
   .row
     .col-10
-      .search
-        %form
-        = form_tag '', method: :get do
-          %button{ :type => 'submit' }
-            %i.fa.fa-search
-          = text_field_tag :query, params[:query], placeholder: 'Search'
+      = react_component 'Search'
     .col-2
       = link_to 'Submit a Project', submit_projects_path, class: 'btn block'

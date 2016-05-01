@@ -11,9 +11,20 @@ var ProjectsIndex = React.createClass({
     };
   },
 
-  loadProjects: function() {
+  loadProjects: function(query, reload) {
+    var reload = reload || false;
+
+    if(reload) {
+      this.setState({
+        projects: [],
+        page: 1
+      });
+    }
+
     var params = $.param({
-      page: this.state.page
+      page: this.state.page,
+      query: query,
+      category_id: this.props.category_id
     });
 
     var newCurrentApiUrl = this.state.baseApiUrl + '?' + params;
@@ -28,8 +39,14 @@ var ProjectsIndex = React.createClass({
     }.bind(this));
   },
 
+  searchSubscriber: function(mas, query) {
+    this.loadProjects(query, true);
+  },
+
   componentDidMount: function() {
     this.loadProjects();
+
+    PubSub.subscribe('qwe', this.searchSubscriber);
   },
 
   componentWillUnmount: function() {
