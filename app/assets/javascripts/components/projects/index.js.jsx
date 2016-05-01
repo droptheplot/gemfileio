@@ -46,7 +46,7 @@ var ProjectsIndex = React.createClass({
   componentDidMount: function() {
     this.loadProjects();
 
-    PubSub.subscribe('qwe', this.searchSubscriber);
+    PubSub.subscribe('searchUpdated', this.searchSubscriber);
   },
 
   componentWillUnmount: function() {

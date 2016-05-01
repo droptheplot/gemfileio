@@ -12,7 +12,7 @@ var Search = React.createClass({
       query: query
     });
 
-    PubSub.publish('qwe', query);
+    PubSub.publish('searchUpdated', query);
   },
 
   render: function() {
