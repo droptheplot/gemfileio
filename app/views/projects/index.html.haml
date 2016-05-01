@@ -1,4 +1,4 @@
-- if @category
+- if @category.respond_to?(:title)
   %h1.title
     = @category.title
-= react_component 'ProjectsIndex'
+= react_component 'ProjectsIndex', category_id: @category.id

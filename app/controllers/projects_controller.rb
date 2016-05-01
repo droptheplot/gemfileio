@@ -37,7 +37,11 @@ class ProjectsController < ApplicationController
     end
 
     def set_category
-      @category = Category.find(params[:category_id]) if params[:category_id]
+      @category = if params[:category_id]
+                    Category.find(params[:category_id])
+                  else
+                    NilCategory.new
+                  end
     end
 
     def project_params
