@@ -8,9 +8,9 @@ class Parser
   def parse
     raise if gem_info === "This rubygem could not be found."
 
-    repo = octokit_client.repo(project.ref)
+    repo = octokit_client.repo(project.github_name)
 
-    commits_count = octokit_client.participation_stats(project.ref)
+    commits_count = octokit_client.participation_stats(project.github_name)
 
     project.stars_count = repo[:stargazers_count]
     project.forks_count = repo[:forks]
