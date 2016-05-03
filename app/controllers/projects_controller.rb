@@ -14,6 +14,8 @@ class ProjectsController < ApplicationController
   def show
     @comment = Comment.new
     @chart = Chart.new(@project.commits_count)
+
+    @title = "%s ruby gem" % [@project.name]
     @meta_tags = {
       description: @project.description,
       keywords: "%s, ruby, gem" % [@project.name]

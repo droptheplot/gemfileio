@@ -33,4 +33,9 @@ class ApplicationController < ActionController::Base
     end.join("\n").html_safe
   end
   helper_method :meta_tags
+
+  def page_title
+    view_context.content_tag(:title, @title || 'Gemfile.io')
+  end
+  helper_method :page_title
 end
