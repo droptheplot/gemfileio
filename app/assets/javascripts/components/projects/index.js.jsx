@@ -7,23 +7,15 @@ var ProjectsIndex = React.createClass({
       baseApiUrl: apiUrl,
       currentApiUrl: apiUrl,
       page: 1,
-      lastPage: false
+      lastPage: false,
+      query: ''
     };
   },
 
-  loadProjects: function(query, reload) {
-    var reload = reload || false;
-
-    if(reload) {
-      this.setState({
-        projects: [],
-        page: 1
-      });
-    }
-
+  loadProjects: function() {
     var params = $.param({
       page: this.state.page,
-      query: query,
+      query: this.state.query,
       category_id: this.props.category_id
     });
 
@@ -40,13 +32,19 @@ var ProjectsIndex = React.createClass({
   },
 
   searchSubscriber: function(mas, query) {
-    this.loadProjects(query, true);
+    this.setState({
+      projects: [],
+      page: 1,
+      query: query
+    });
+
+    this.loadProjects();
   },
 
   componentDidMount: function() {
-    this.loadProjects();
-
     PubSub.subscribe('searchUpdated', this.searchSubscriber);
+
+    this.loadProjects();
   },
 
   componentWillUnmount: function() {
