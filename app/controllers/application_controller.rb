@@ -26,4 +26,11 @@ class ApplicationController < ActionController::Base
     "https://github.com/login/oauth/authorize?client_id=#{Rails.application.secrets.github_client_id}&redirect_uri=#{users_oauth_url(:github)}"
   end
   helper_method :github_oauth_path
+
+  def meta_tags
+    @meta_tags.to_a.collect do |name, content|
+      view_context.content_tag(:meta, nil, name: name, content: content)
+    end.join("\n").html_safe
+  end
+  helper_method :meta_tags
 end
