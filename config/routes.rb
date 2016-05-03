@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'categories/:category_id' => 'projects#index', as: :category
+  get 'categories/:category_slug' => 'projects#index', as: :category
 
   resources :comments, only: :create
 

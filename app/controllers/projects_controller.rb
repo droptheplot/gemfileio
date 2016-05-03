@@ -41,8 +41,8 @@ class ProjectsController < ApplicationController
     end
 
     def set_category
-      @category = if params[:category_id]
-                    Category.find(params[:category_id])
+      @category = if params[:category_slug]
+                    Category.find_by(slug: params[:category_slug])
                   else
                     NilCategory.new
                   end
