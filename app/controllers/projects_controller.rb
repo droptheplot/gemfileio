@@ -3,12 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :set_category, only: :index
 
   def index
-    @projects = Project.top
-                       .active
-                       .by_category(params[:category_id])
-                       .by_query(params[:query])
-                       .page(params[:page])
-                       .per(30)
   end
 
   def show
