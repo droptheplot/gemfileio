@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :projects, only: [:index, :show, :create] do
+  resources :projects, only: [:index, :show, :create], param: :name do
     collection do
       get :submit
     end

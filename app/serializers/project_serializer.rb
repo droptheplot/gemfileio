@@ -20,6 +20,6 @@ class ProjectSerializer < ActiveModel::Serializer
   )
 
   def url
-    project_path(self.id)
+    project_path(object)
   end
 end
