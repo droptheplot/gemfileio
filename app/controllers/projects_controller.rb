@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
   before_filter :set_category, only: :index
 
   def index
+    @meta_tags = {
+      description: 'Ruby gems catalog.',
+      keywords: 'ruby, gem, gems, rubygems, rails, github'
+    }
   end
 
   def show
