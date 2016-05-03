@@ -16,7 +16,7 @@ describe 'Projects', type: :request do
     let!(:project) { FactoryGirl.create(:project) }
 
     it 'returns project' do
-      get api_v1_project_path(project)
+      get api_v1_project_path(project.id)
 
       expect(response).to be_success
       expect(json).to_not be_nil
