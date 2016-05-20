@@ -1,7 +1,11 @@
 class Adminable::CommentsController < Adminable::ResourcesController
-  set_attributes do |attributes|
-    attributes.set :updated_at, index: false
-    attributes.set :project, index: true
-    attributes.set :user, index: true
+  def fields
+    [
+      Adminable::Fields::Integer.new(:id, form: false),
+			Adminable::Fields::Text.new(:body),
+      Adminable::Fields::BelongsTo.new(:user),
+      Adminable::Fields::BelongsTo.new(:project),
+			Adminable::Fields::Datetime.new(:created_at, form: false)
+    ]
   end
 end

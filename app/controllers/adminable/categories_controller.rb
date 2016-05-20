@@ -1,9 +1,11 @@
 class Adminable::CategoriesController < Adminable::ResourcesController
-  set_attributes do |attributes|
-    attributes.set(
-      :created_at,
-      :updated_at,
-      index: false
-    )
+  def fields
+    [
+      Adminable::Fields::Integer.new(:id, form: false),
+			Adminable::Fields::String.new(:title),
+      Adminable::Fields::String.new(:slug),
+			Adminable::Fields::Integer.new(:projects_count),
+			Adminable::Fields::HasMany.new(:projects)
+    ]
   end
 end
